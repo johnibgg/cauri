@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cauri — Installer l’application / Install the app</title>
+<meta name="description" content="Installer Cauri sur Android en quatre étapes. 17 Mo, gratuit, sans compte.">
+<link rel="icon" type="image/png" href="icone.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Karla:wght@400;500;700&display=swap">
+<style>
+  :root {
+    --vert: #0B6B53; --vert-sombre: #064C3B; --or: #B07B1E; --or-clair: #FDF1DC;
+    --encre: #14231E; --gris: #5F6F69; --sable: #F7F4ED; --trait: #E1DACB;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--sable); color: var(--encre);
+    font: 400 17px/1.62 Karla, system-ui, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  header {
+    background: linear-gradient(160deg, var(--vert), var(--vert-sombre));
+    color: #fff; padding: 26px 22px 42px;
+  }
+  .dedans { max-width: 720px; margin: 0 auto; }
+  .haut { display: flex; align-items: center; gap: 14px; }
+  .marque { font: 900 22px Archivo, sans-serif; color: #fff; text-decoration: none; }
+  .bascule { margin-left: auto; display: flex; gap: 4px; }
+  .bascule button {
+    background: rgba(255,255,255,.12); color: #fff; border: 0;
+    font: 700 13px Karla, sans-serif; padding: 7px 13px; border-radius: 999px; cursor: pointer;
+  }
+  .bascule button[aria-pressed="true"] { background: var(--or); }
+  h1 { font: 900 clamp(28px, 6.4vw, 42px)/1.12 Archivo, sans-serif; margin: 26px 0 10px; }
+  header p { color: rgba(255,255,255,.8); margin: 0; font-size: 16px; }
+  main { max-width: 720px; margin: -22px auto 0; padding: 0 22px 70px; }
+  .bouton {
+    display: block; text-align: center; text-decoration: none;
+    background: var(--vert); color: #fff; font: 700 19px Archivo, sans-serif;
+    padding: 20px 22px; border-radius: 14px; margin: 0 0 10px;
+    box-shadow: 0 10px 26px rgba(6,76,59,.26);
+  }
+  .bouton small { display: block; font: 500 14px Karla, sans-serif; opacity: .8; margin-top: 4px; }
+  .secondaire {
+    display: block; text-align: center; text-decoration: none; color: var(--vert);
+    border: 1.5px solid var(--vert); background: #fff;
+    font: 700 16px Archivo, sans-serif; padding: 14px; border-radius: 12px;
+  }
+  ol.etapes { list-style: none; counter-reset: e; padding: 0; margin: 30px 0 0; }
+  ol.etapes > li {
+    counter-increment: e; position: relative; padding: 0 0 0 60px; margin: 0 0 26px;
+  }
+  ol.etapes > li::before {
+    content: counter(e); position: absolute; left: 0; top: 0;
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--vert); color: #fff;
+    font: 900 18px Archivo, sans-serif;
+    display: flex; align-items: center; justify-content: center;
+  }
+  ol.etapes h2 { font: 700 19px/1.35 Archivo, sans-serif; margin: 6px 0 6px; }
+  ol.etapes p { margin: 0 0 8px; }
+  .note {
+    background: var(--or-clair); border-left: 4px solid var(--or);
+    padding: 15px 17px; border-radius: 0 12px 12px 0; margin: 12px 0 0;
+    font-size: 15.5px;
+  }
+  .note p { margin: 0; }
+  section.bloc {
+    background: #fff; border: 1px solid var(--trait); border-radius: 16px;
+    padding: 22px 24px; margin-top: 26px;
+  }
+  section.bloc h2 { font: 700 20px Archivo, sans-serif; margin: 0 0 10px; color: var(--vert); }
+  dl { margin: 0; }
+  dt { font-weight: 700; margin-top: 14px; }
+  dd { margin: 4px 0 0; color: var(--gris); }
+  a { color: var(--vert); }
+  footer { max-width: 720px; margin: 0 auto; padding: 0 22px 50px; color: var(--gris); font-size: 14.5px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="dedans">
+    <div class="haut">
+      <a class="marque" href="./">Cauri</a>
+      <div class="bascule">
+        <button type="button" data-langue="fr" aria-pressed="true">FR</button>
+        <button type="button" data-langue="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+    <h1 data-fr="Installer Cauri" data-en="Install Cauri">Installer Cauri</h1>
+    <p data-fr="Quatre étapes, deux minutes. Android 5 et plus."
+       data-en="Four steps, two minutes. Android 5 and above.">
+      Quatre étapes, deux minutes. Android 5 et plus.
+    </p>
+  </div>
+</header>
+
+<main>
+
+  <a class="bouton" href="Cauri-1.0.0.apk" data-fr="Télécharger Cauri&lt;small&gt;17 Mo · gratuit · aucun compte&lt;/small&gt;"
+     data-en="Download Cauri&lt;small&gt;17 MB · free · no account&lt;/small&gt;">
+     Télécharger Cauri<small>17 Mo · gratuit · aucun compte</small>
+  </a>
+  <a class="secondaire" href="app/" data-fr="Ou essayer d’abord dans le navigateur"
+     data-en="Or try it in your browser first">Ou essayer d’abord dans le navigateur</a>
+
+  <ol class="etapes">
+
+    <li>
+      <h2 data-fr="Appuyez sur Télécharger" data-en="Tap Download">Appuyez sur Télécharger</h2>
+      <p data-fr="Le fichier &lt;strong&gt;Cauri-1.0.0.apk&lt;/strong&gt; se met dans vos téléchargements. Comptez 17 Mo : en données mobiles, c’est environ le poids de trois chansons."
+         data-en="The file &lt;strong&gt;Cauri-1.0.0.apk&lt;/strong&gt; goes into your downloads. It weighs 17 MB: on mobile data, about three songs.">
+        Le fichier <strong>Cauri-1.0.0.apk</strong> se met dans vos téléchargements. Comptez 17 Mo : en données mobiles, c’est environ le poids de trois chansons.
+      </p>
+    </li>
+
+    <li>
+      <h2 data-fr="Ouvrez le fichier téléchargé" data-en="Open the downloaded file">Ouvrez le fichier téléchargé</h2>
+      <p data-fr="Appuyez sur la notification de téléchargement, ou allez dans &lt;strong&gt;Fichiers → Téléchargements&lt;/strong&gt; et appuyez sur &lt;strong&gt;Cauri-1.0.0.apk&lt;/strong&gt;."
+         data-en="Tap the download notification, or go to &lt;strong&gt;Files → Downloads&lt;/strong&gt; and tap &lt;strong&gt;Cauri-1.0.0.apk&lt;/strong&gt;.">
+        Appuyez sur la notification de téléchargement, ou allez dans <strong>Fichiers → Téléchargements</strong> et appuyez sur <strong>Cauri-1.0.0.apk</strong>.
+      </p>
+    </li>
+
+    <li>
+      <h2 data-fr="Android va vous poser une question" data-en="Android will ask you a question">Android va vous poser une question</h2>
+      <p data-fr="Un message apparaît : &lt;em&gt;« Pour votre sécurité, votre téléphone ne peut pas installer d’applications inconnues depuis cette source »&lt;/em&gt;. C’est normal, et ce n’est pas un avertissement contre Cauri."
+         data-en="A message appears: &lt;em&gt;“For your security, your phone is not allowed to install unknown apps from this source”&lt;/em&gt;. This is normal, and it is not a warning about Cauri.">
+        Un message apparaît : <em>« Pour votre sécurité, votre téléphone ne peut pas installer d’applications inconnues depuis cette source »</em>. C’est normal, et ce n’est pas un avertissement contre Cauri.
+      </p>
+      <p data-fr="Appuyez sur &lt;strong&gt;Paramètres&lt;/strong&gt;, puis activez &lt;strong&gt;Autoriser depuis cette source&lt;/strong&gt;, et revenez en arrière."
+         data-en="Tap &lt;strong&gt;Settings&lt;/strong&gt;, turn on &lt;strong&gt;Allow from this source&lt;/strong&gt;, then go back.">
+        Appuyez sur <strong>Paramètres</strong>, puis activez <strong>Autoriser depuis cette source</strong>, et revenez en arrière.
+      </p>
+      <div class="note">
+        <p data-fr="Android dit « inconnue » pour toute application qui ne vient pas du Play Store. Cauri n’y est pas encore. Vous pouvez ne réautoriser que le navigateur, une seule fois, et le désactiver après l’installation."
+           data-en="Android says “unknown” about any app that does not come from the Play Store. Cauri is not there yet. You can allow just your browser, once, and switch it off again after installing.">
+          Android dit « inconnue » pour toute application qui ne vient pas du Play Store. Cauri n’y est pas encore. Vous pouvez ne réautoriser que le navigateur, une seule fois, et le désactiver après l’installation.
+        </p>
+      </div>
+    </li>
+
+    <li>
+      <h2 data-fr="Appuyez sur Installer" data-en="Tap Install">Appuyez sur Installer</h2>
+      <p data-fr="L’installation prend quelques secondes. Ouvrez Cauri, donnez le nom de votre boutique, choisissez votre monnaie, et vous pouvez vendre."
+         data-en="Installing takes a few seconds. Open Cauri, give your shop’s name, pick your currency, and you can start selling.">
+        L’installation prend quelques secondes. Ouvrez Cauri, donnez le nom de votre boutique, choisissez votre monnaie, et vous pouvez vendre.
+      </p>
+      <p data-fr="&lt;strong&gt;Quatorze jours de Pro sont offerts&lt;/strong&gt;, sans rien à payer et sans rien à donner."
+         data-en="&lt;strong&gt;Fourteen days of Pro are included&lt;/strong&gt;, with nothing to pay and nothing to hand over.">
+        <strong>Quatorze jours de Pro sont offerts</strong>, sans rien à payer et sans rien à donner.
+      </p>
+    </li>
+
+  </ol>
+
+  <section class="bloc">
+    <h2 data-fr="Si quelque chose coince" data-en="If something goes wrong">Si quelque chose coince</h2>
+    <dl>
+      <dt data-fr="« Application non installée »" data-en="“App not installed”">« Application non installée »</dt>
+      <dd data-fr="Il reste en général une ancienne version. Désinstallez-la d’abord — mais faites une sauvegarde avant, depuis Réglages → Exporter mes données."
+          data-en="There is usually an older version left. Uninstall it first — but make a backup beforehand, from Settings → Export my data.">
+        Il reste en général une ancienne version. Désinstallez-la d’abord — mais faites une sauvegarde avant, depuis Réglages → Exporter mes données.
+      </dd>
+
+      <dt data-fr="« Fichier corrompu » ou téléchargement qui s’arrête"
+          data-en="“Corrupt file” or a download that stops">« Fichier corrompu » ou téléchargement qui s’arrête</dt>
+      <dd data-fr="Le téléchargement s’est interrompu. Recommencez-le, de préférence sur une connexion stable."
+          data-en="The download was cut short. Start it again, ideally on a stable connection.">
+        Le téléchargement s’est interrompu. Recommencez-le, de préférence sur une connexion stable.
+      </dd>
+
+      <dt data-fr="Le téléphone dit que l’application est dangereuse"
+          data-en="The phone says the app is harmful">Le téléphone dit que l’application est dangereuse</dt>
+      <dd data-fr="Certains téléphones affichent cela pour toute application installée hors du Play Store. Cauri ne demande aucune permission : ni internet, ni contacts, ni appareil photo, ni localisation. Vous pouvez le vérifier vous-même — voir la page Confidentialité."
+          data-en="Some phones show this for any app installed outside the Play Store. Cauri requests no permission at all: no internet, no contacts, no camera, no location. You can check this yourself — see the Privacy page.">
+        Certains téléphones affichent cela pour toute application installée hors du Play Store. Cauri ne demande aucune permission : ni internet, ni contacts, ni appareil photo, ni localisation. Vous pouvez le vérifier vous-même — voir la page Confidentialité.
+      </dd>
+
+      <dt data-fr="Un iPhone" data-en="An iPhone">Un iPhone</dt>
+      <dd data-fr="Ce fichier ne s’installe pas sur iPhone : Apple ne l’autorise pas. Ouvrez plutôt la version navigateur, puis Partager → Sur l’écran d’accueil."
+          data-en="This file cannot be installed on an iPhone: Apple does not allow it. Open the browser version instead, then Share → Add to Home Screen.">
+        Ce fichier ne s’installe pas sur iPhone : Apple ne l’autorise pas. Ouvrez plutôt la version navigateur, puis Partager → Sur l’écran d’accueil.
+      </dd>
+
+      <dt data-fr="Un téléphone récent et puissant" data-en="A recent, powerful phone">Un téléphone récent et puissant</dt>
+      <dd data-fr="La version ci-dessus marche partout. Si vous voulez la version 64 bits, un peu plus rapide : &lt;a href='Cauri-1.0.0-64bits.apk'&gt;Cauri-1.0.0-64bits.apk&lt;/a&gt;."
+          data-en="The version above works everywhere. If you want the 64-bit build, slightly faster: &lt;a href='Cauri-1.0.0-64bits.apk'&gt;Cauri-1.0.0-64bits.apk&lt;/a&gt;.">
+        La version ci-dessus marche partout. Si vous voulez la version 64 bits, un peu plus rapide : <a href="Cauri-1.0.0-64bits.apk">Cauri-1.0.0-64bits.apk</a>.
+      </dd>
+    </dl>
+  </section>
+
+  <section class="bloc">
+    <h2 data-fr="Besoin d’aide" data-en="Need help">Besoin d’aide</h2>
+    <p data-fr="Écrivez-nous sur WhatsApp : &lt;a href='https://wa.me/2290151464510'&gt;+229 01 51 46 45 10&lt;/a&gt;. Dites-nous simplement ce que le téléphone affiche."
+       data-en="Message us on WhatsApp: &lt;a href='https://wa.me/2290151464510'&gt;+229 01 51 46 45 10&lt;/a&gt;. Just tell us what the phone shows.">
+      Écrivez-nous sur WhatsApp : <a href="https://wa.me/2290151464510">+229 01 51 46 45 10</a>. Dites-nous simplement ce que le téléphone affiche.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <p>
+    <a href="./" data-fr="← Accueil" data-en="← Home">← Accueil</a> ·
+    <a href="confidentialite.html" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a>
+  </p>
+</footer>
+
+<script>
+  const elementsTraduits = Array.from(document.querySelectorAll('[data-fr][data-en]'));
+  function appliquerLangue(code) {
+    document.documentElement.lang = code;
+    for (const el of elementsTraduits) el.innerHTML = el.dataset[code];
+    for (const b of document.querySelectorAll('[data-langue]')) {
+      b.setAttribute('aria-pressed', String(b.dataset.langue === code));
+    }
+    try { localStorage.setItem('cauri-langue', code); } catch (e) {}
+  }
+  for (const b of document.querySelectorAll('[data-langue]')) {
+    b.addEventListener('click', () => appliquerLangue(b.dataset.langue));
+  }
+  let choisie = null;
+  try { choisie = localStorage.getItem('cauri-langue'); } catch (e) {}
+  const duNavigateur = (navigator.language || 'fr').slice(0, 2) === 'fr' ? 'fr' : 'en';
+  appliquerLangue(choisie || duNavigateur);
+</script>
+
+</body>
+</html>

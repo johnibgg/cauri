@@ -668,6 +668,10 @@
   <footer>
     <span>Cauri · <span data-fr="Ventes, stock et crédits. Hors ligne." data-en="Sales, stock and credit. Offline.">Ventes, stock et crédits. Hors ligne.</span></span>
     <span><a href="https://wa.me/2290151464510">WhatsApp</a> · +229 01 51 46 45 10</span>
+    <span>
+      <a href="installer.html" data-fr="Comment installer" data-en="How to install">Comment installer</a> ·
+      <a href="confidentialite.html" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a>
+    </span>
   </footer>
 </main>
 
@@ -690,19 +694,27 @@
   // --- tarifs, cales sur le pouvoir d'achat local -------------------------
   // Memes valeurs que lib/config.dart : si vous changez la, changez ici.
   const TARIFS = {
-    XOF: { mois: 2000,  an: 15000,  symbole: 'F',   apres: true,  decimales: 0 },
-    NGN: { mois: 2500,  an: 19000,  symbole: '₦',   apres: false, decimales: 0 },
-    GHS: { mois: 40,    an: 300,    symbole: 'GH₵', apres: false, decimales: 0 },
-    KES: { mois: 300,   an: 2400,   symbole: 'KSh', apres: false, decimales: 0 },
-    INR: { mois: 199,   an: 1499,   symbole: '₹',   apres: false, decimales: 0 },
-    EUR: { mois: 3.99,  an: 29.99,  symbole: '€',   apres: true,  decimales: 2 },
-    USD: { mois: 3.99,  an: 29.99,  symbole: '$',   apres: false, decimales: 2 },
+    XOF: { mois: 2000,  an: 15000,  symbole: 'F',   apres: true,  decimales: 0, millier: ' ', decimale: ',' },
+    NGN: { mois: 2500,  an: 19000,  symbole: '₦',   apres: false, decimales: 0, millier: ',', decimale: '.' },
+    GHS: { mois: 40,    an: 300,    symbole: 'GH₵', apres: false, decimales: 0, millier: ',', decimale: '.' },
+    KES: { mois: 300,   an: 2400,   symbole: 'KSh', apres: false, decimales: 0, millier: ',', decimale: '.' },
+    INR: { mois: 199,   an: 1499,   symbole: '₹',   apres: false, decimales: 0, millier: ',', decimale: '.' },
+    EUR: { mois: 3.99,  an: 29.99,  symbole: '€',   apres: true,  decimales: 2, millier: ' ', decimale: ',' },
+    USD: { mois: 3.99,  an: 29.99,  symbole: '$',   apres: false, decimales: 2, millier: ',', decimale: '.' },
   };
 
   function ecrire(valeur, t) {
-    const corps = t.decimales === 0
-      ? Math.round(valeur).toLocaleString('fr-FR').replace(/ | /g, ' ')
+    // Le separateur des milliers suit la monnaie, comme dans
+    // lib/config.dart : 57 150 F a Cotonou, mais NGN 57,150 a Lagos.
+    // Se tromper la-dessus signale un logiciel etranger.
+    const millier = t.millier || ' ';
+    const decimale = t.decimale || ',';
+    const brut = t.decimales === 0
+      ? String(Math.round(valeur))
       : valeur.toFixed(t.decimales);
+    const morceaux = brut.split('.');
+    const groupe = morceaux[0].replace(/\B(?=(\d{3})+(?!\d))/g, millier);
+    const corps = morceaux[1] ? groupe + decimale + morceaux[1] : groupe;
     return t.apres ? corps + ' ' + t.symbole : t.symbole + corps;
   }
 

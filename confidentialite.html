@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cauri — Confidentialité / Privacy</title>
+<meta name="description" content="Cauri ne collecte aucune donnée. L'application n'a pas la permission d'accéder à internet.">
+<link rel="icon" type="image/png" href="icone.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Karla:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+  :root {
+    --vert: #0B6B53; --vert-sombre: #064C3B; --or: #B07B1E;
+    --encre: #14231E; --gris: #5F6F69; --sable: #F7F4ED; --trait: #E1DACB;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--sable); color: var(--encre);
+    font: 400 17px/1.65 Karla, system-ui, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  header {
+    background: linear-gradient(160deg, var(--vert), var(--vert-sombre));
+    color: #fff; padding: 26px 22px 40px;
+  }
+  .dedans { max-width: 760px; margin: 0 auto; }
+  .haut { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .marque {
+    font: 900 22px Archivo, sans-serif; color: #fff;
+    text-decoration: none; letter-spacing: .3px;
+  }
+  .bascule { margin-left: auto; display: flex; gap: 4px; }
+  .bascule button {
+    background: rgba(255,255,255,.12); color: #fff; border: 0;
+    font: 700 13px Karla, sans-serif; padding: 7px 13px; border-radius: 999px;
+    cursor: pointer;
+  }
+  .bascule button[aria-pressed="true"] { background: var(--or); }
+  h1 { font: 900 clamp(28px, 6vw, 40px)/1.15 Archivo, sans-serif; margin: 26px 0 8px; }
+  header p { color: rgba(255,255,255,.78); margin: 0; font-size: 15.5px; }
+  main { max-width: 760px; margin: 0 auto; padding: 0 22px 70px; }
+  section {
+    background: #fff; border: 1px solid var(--trait); border-radius: 16px;
+    padding: 24px 26px; margin-top: 22px;
+  }
+  h2 { font: 700 21px/1.3 Archivo, sans-serif; margin: 0 0 12px; color: var(--vert); }
+  h3 { font: 700 17px/1.4 Archivo, sans-serif; margin: 22px 0 6px; }
+  p, li { margin: 0 0 12px; }
+  ul { padding-left: 22px; margin: 0 0 4px; }
+  .fort {
+    background: #E9F2EE; border-left: 4px solid var(--vert);
+    padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+  }
+  .fort p:last-child { margin-bottom: 0; }
+  code, .mono {
+    font: 600 14.5px IBM Plex Mono, monospace;
+    background: #EFEBE0; padding: 2px 6px; border-radius: 5px;
+  }
+  .date { color: var(--gris); font-size: 14.5px; }
+  a { color: var(--vert); }
+  footer {
+    max-width: 760px; margin: 0 auto; padding: 0 22px 50px;
+    color: var(--gris); font-size: 14.5px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="dedans">
+    <div class="haut">
+      <a class="marque" href="./">Cauri</a>
+      <div class="bascule">
+        <button type="button" data-langue="fr" aria-pressed="true">FR</button>
+        <button type="button" data-langue="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+    <h1 data-fr="Confidentialité" data-en="Privacy">Confidentialité</h1>
+    <p data-fr="Ce document tient en une phrase : Cauri ne collecte rien, parce qu’il en est techniquement incapable."
+       data-en="This document fits in one sentence: Cauri collects nothing, because it is technically unable to.">
+      Ce document tient en une phrase : Cauri ne collecte rien, parce qu’il en est techniquement incapable.
+    </p>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <h2 data-fr="Ce que nous collectons" data-en="What we collect">Ce que nous collectons</h2>
+    <div class="fort">
+      <p data-fr="&lt;strong&gt;Rien.&lt;/strong&gt; Aucune donnée personnelle, aucune donnée d’usage, aucune donnée commerciale ne quitte votre téléphone. Il n’y a pas de compte à créer, pas d’adresse e-mail à donner, pas de numéro à confirmer."
+         data-en="&lt;strong&gt;Nothing.&lt;/strong&gt; No personal data, no usage data, no business data ever leaves your phone. There is no account to create, no email address to give, no number to confirm.">
+        <strong>Rien.</strong> Aucune donnée personnelle, aucune donnée d’usage, aucune donnée commerciale ne quitte votre téléphone. Il n’y a pas de compte à créer, pas d’adresse e-mail à donner, pas de numéro à confirmer.
+      </p>
+    </div>
+    <p data-fr="Ce n’est pas un engagement sur l’honneur. C’est une contrainte inscrite dans le fichier d’installation : &lt;strong&gt;l’application ne demande pas la permission d’accéder à internet.&lt;/strong&gt; Android lui interdit donc d’ouvrir la moindre connexion réseau. Même si elle voulait envoyer vos chiffres quelque part, le système le lui refuserait."
+       data-en="This is not a promise of good behaviour. It is a constraint written into the installation file: &lt;strong&gt;the app does not request internet permission.&lt;/strong&gt; Android therefore forbids it from opening any network connection at all. Even if it wanted to send your figures somewhere, the system would refuse.">
+      Ce n’est pas un engagement sur l’honneur. C’est une contrainte inscrite dans le fichier d’installation : <strong>l’application ne demande pas la permission d’accéder à internet.</strong> Android lui interdit donc d’ouvrir la moindre connexion réseau. Même si elle voulait envoyer vos chiffres quelque part, le système le lui refuserait.
+    </p>
+    <p data-fr="Vous pouvez le vérifier vous-même, sans nous croire sur parole, avec n’importe quel analyseur d’APK :"
+       data-en="You can check this yourself, without taking our word for it, with any APK analyser:">
+      Vous pouvez le vérifier vous-même, sans nous croire sur parole, avec n’importe quel analyseur d’APK :
+    </p>
+    <p><code>aapt2 dump permissions Cauri-1.0.0.apk</code></p>
+    <p data-fr="La seule ligne qui apparaît est une permission interne d’Android, de niveau signature, qui ne donne accès à rien d’extérieur."
+       data-en="The only line that appears is an internal Android permission, at signature level, which grants access to nothing outside the app.">
+      La seule ligne qui apparaît est une permission interne d’Android, de niveau signature, qui ne donne accès à rien d’extérieur.
+    </p>
+  </section>
+
+  <section>
+    <h2 data-fr="Où vivent vos données" data-en="Where your data lives">Où vivent vos données</h2>
+    <p data-fr="Vos produits, vos ventes, vos clients, vos crédits et vos dépenses sont enregistrés dans un fichier de base de données, à l’intérieur de l’espace privé que le système réserve à l’application, sur votre téléphone. Aucune autre application ne peut le lire. Nous non plus."
+       data-en="Your products, sales, customers, credit and expenses are stored in a database file, inside the private area the system reserves for the app, on your phone. No other app can read it. Neither can we.">
+      Vos produits, vos ventes, vos clients, vos crédits et vos dépenses sont enregistrés dans un fichier de base de données, à l’intérieur de l’espace privé que le système réserve à l’application, sur votre téléphone. Aucune autre application ne peut le lire. Nous non plus.
+    </p>
+    <p data-fr="Si vous désinstallez Cauri, ce fichier est effacé avec elle. Faites une sauvegarde avant."
+       data-en="If you uninstall Cauri, that file is deleted with it. Make a backup first.">
+      Si vous désinstallez Cauri, ce fichier est effacé avec elle. Faites une sauvegarde avant.
+    </p>
+
+    <h3 data-fr="La sauvegarde" data-en="Backups">La sauvegarde</h3>
+    <p data-fr="La fonction de sauvegarde écrit un fichier et vous le remet. C’est vous qui décidez où il va : WhatsApp, une carte mémoire, un courriel, un ordinateur. Il ne part vers aucun serveur, et il n’en existe aucune copie chez nous."
+       data-en="The backup feature writes a file and hands it to you. You decide where it goes: WhatsApp, a memory card, an email, a computer. It is not sent to any server, and we hold no copy of it.">
+      La fonction de sauvegarde écrit un fichier et vous le remet. C’est vous qui décidez où il va : WhatsApp, une carte mémoire, un courriel, un ordinateur. Il ne part vers aucun serveur, et il n’en existe aucune copie chez nous.
+    </p>
+    <p data-fr="Ce fichier n’est pas chiffré : il se lit avec un éditeur de texte. Traitez-le comme vous traiteriez votre cahier — ne le laissez pas traîner."
+       data-en="That file is not encrypted: it can be read with a text editor. Treat it the way you would treat your notebook — do not leave it lying around.">
+      Ce fichier n’est pas chiffré : il se lit avec un éditeur de texte. Traitez-le comme vous traiteriez votre cahier — ne le laissez pas traîner.
+    </p>
+  </section>
+
+  <section>
+    <h2 data-fr="Les données de vos clients" data-en="Your customers’ data">Les données de vos clients</h2>
+    <p data-fr="Quand vous inscrivez le nom et le numéro d’un client dans le carnet de crédits, ces informations restent sur votre téléphone, exactement comme les vôtres. Nous n’y avons pas accès."
+       data-en="When you record a customer’s name and number in the credit book, that information stays on your phone, exactly like your own. We have no access to it.">
+      Quand vous inscrivez le nom et le numéro d’un client dans le carnet de crédits, ces informations restent sur votre téléphone, exactement comme les vôtres. Nous n’y avons pas accès.
+    </p>
+    <p data-fr="Vous en êtes le responsable : c’est votre carnet, sous votre garde, avec les obligations que cela implique dans votre pays. Cauri vous donne de quoi supprimer une fiche client à tout moment, et de quoi tout effacer d’un coup depuis les Réglages."
+       data-en="You are responsible for it: it is your book, in your keeping, with whatever obligations that carries in your country. Cauri lets you delete a customer record at any time, and erase everything at once from Settings.">
+      Vous en êtes le responsable : c’est votre carnet, sous votre garde, avec les obligations que cela implique dans votre pays. Cauri vous donne de quoi supprimer une fiche client à tout moment, et de quoi tout effacer d’un coup depuis les Réglages.
+    </p>
+  </section>
+
+  <section>
+    <h2 data-fr="Ce qui sort de l’application, et seulement si vous le demandez"
+        data-en="What leaves the app, and only if you ask">Ce qui sort de l’application, et seulement si vous le demandez</h2>
+    <p data-fr="Trois actions passent la main à une autre application de votre téléphone. Chacune part d’un geste de votre part, et vous voyez le message avant qu’il ne parte :"
+       data-en="Three actions hand over to another app on your phone. Each one starts with a tap from you, and you see the message before it goes:">
+      Trois actions passent la main à une autre application de votre téléphone. Chacune part d’un geste de votre part, et vous voyez le message avant qu’il ne parte :
+    </p>
+    <ul>
+      <li data-fr="&lt;strong&gt;Partager un reçu&lt;/strong&gt; — ouvre le partage du système. C’est vous qui choisissez le destinataire."
+          data-en="&lt;strong&gt;Sharing a receipt&lt;/strong&gt; — opens the system share sheet. You choose the recipient."><strong>Partager un reçu</strong> — ouvre le partage du système. C’est vous qui choisissez le destinataire.</li>
+      <li data-fr="&lt;strong&gt;Relancer un client&lt;/strong&gt; — ouvre WhatsApp avec un message déjà écrit. Vous le relisez, et c’est vous qui appuyez sur envoyer."
+          data-en="&lt;strong&gt;Reminding a customer&lt;/strong&gt; — opens WhatsApp with a message already written. You read it over, and you press send."><strong>Relancer un client</strong> — ouvre WhatsApp avec un message déjà écrit. Vous le relisez, et c’est vous qui appuyez sur envoyer.</li>
+      <li data-fr="&lt;strong&gt;Passer en Pro&lt;/strong&gt; — ouvre WhatsApp vers notre numéro, avec votre code appareil. Ce code est une suite de dix lettres tirée au hasard : il ne contient ni votre nom, ni votre numéro, ni aucune information sur votre téléphone."
+          data-en="&lt;strong&gt;Going Pro&lt;/strong&gt; — opens WhatsApp to our number, with your device code. That code is ten randomly drawn letters: it contains no name, no number, and nothing about your phone."><strong>Passer en Pro</strong> — ouvre WhatsApp vers notre numéro, avec votre code appareil. Ce code est une suite de dix lettres tirée au hasard : il ne contient ni votre nom, ni votre numéro, ni aucune information sur votre téléphone.</li>
+    </ul>
+    <p data-fr="Une fois la main passée, c’est la politique de confidentialité de l’autre application qui s’applique — celle de WhatsApp, par exemple. Nous n’y pouvons rien."
+       data-en="Once handed over, the other app’s privacy policy applies — WhatsApp’s, for instance. That is out of our hands.">
+      Une fois la main passée, c’est la politique de confidentialité de l’autre application qui s’applique — celle de WhatsApp, par exemple. Nous n’y pouvons rien.
+    </p>
+  </section>
+
+  <section>
+    <h2 data-fr="La version qui tourne dans le navigateur" data-en="The version that runs in a browser">La version qui tourne dans le navigateur</h2>
+    <p data-fr="La démonstration en ligne fonctionne de la même façon : tout est enregistré dans votre navigateur, sur votre appareil. Elle est remplie d’une boutique fictive, pour que vous puissiez essayer sans rien saisir. Rien n’est transmis à un serveur."
+       data-en="The online demo works the same way: everything is stored in your browser, on your device. It comes filled with a made-up shop so you can try it without typing anything in. Nothing is sent to a server.">
+      La démonstration en ligne fonctionne de la même façon : tout est enregistré dans votre navigateur, sur votre appareil. Elle est remplie d’une boutique fictive, pour que vous puissiez essayer sans rien saisir. Rien n’est transmis à un serveur.
+    </p>
+    <p data-fr="Le site est hébergé par GitHub Pages, qui enregistre les requêtes reçues comme le fait tout hébergeur. Nous ne consultons pas ces journaux et n’y avons pas ajouté de traceur : il n’y a ni cookie, ni mesure d’audience, ni régie publicitaire sur ces pages."
+       data-en="The site is hosted by GitHub Pages, which logs incoming requests as any host does. We do not consult those logs and have added no tracker: there is no cookie, no analytics and no ad network on these pages.">
+      Le site est hébergé par GitHub Pages, qui enregistre les requêtes reçues comme le fait tout hébergeur. Nous ne consultons pas ces journaux et n’y avons pas ajouté de traceur : il n’y a ni cookie, ni mesure d’audience, ni régie publicitaire sur ces pages.
+    </p>
+  </section>
+
+  <section>
+    <h2 data-fr="Les enfants" data-en="Children">Les enfants</h2>
+    <p data-fr="Cauri est un outil de travail destiné aux commerçants. Il ne s’adresse pas aux enfants et ne leur demande rien — puisqu’il ne demande rien à personne."
+       data-en="Cauri is a working tool for shopkeepers. It is not aimed at children and asks them for nothing — since it asks nobody for anything.">
+      Cauri est un outil de travail destiné aux commerçants. Il ne s’adresse pas aux enfants et ne leur demande rien — puisqu’il ne demande rien à personne.
+    </p>
+  </section>
+
+  <section>
+    <h2 data-fr="Si ce document change" data-en="If this document changes">Si ce document change</h2>
+    <p data-fr="Le jour où une version de Cauri accéderait au réseau — pour une sauvegarde en ligne, par exemple — ce serait écrit ici avant, et la permission internet apparaîtrait dans le fichier d’installation. Vous le verriez au moment de la mise à jour. Tant que cette permission est absente, la promesse ci-dessus tient toute seule."
+       data-en="The day a version of Cauri reaches the network — for an online backup, say — it would be written here first, and the internet permission would appear in the installation file. You would see it at update time. As long as that permission is absent, the promise above holds on its own.">
+      Le jour où une version de Cauri accéderait au réseau — pour une sauvegarde en ligne, par exemple — ce serait écrit ici avant, et la permission internet apparaîtrait dans le fichier d’installation. Vous le verriez au moment de la mise à jour. Tant que cette permission est absente, la promesse ci-dessus tient toute seule.
+    </p>
+  </section>
+
+  <section>
+    <h2 data-fr="Nous écrire" data-en="Contact us">Nous écrire</h2>
+    <p data-fr="WhatsApp : &lt;a href='https://wa.me/2290151464510'&gt;+229 01 51 46 45 10&lt;/a&gt;"
+       data-en="WhatsApp: &lt;a href='https://wa.me/2290151464510'&gt;+229 01 51 46 45 10&lt;/a&gt;">
+      WhatsApp : <a href="https://wa.me/2290151464510">+229 01 51 46 45 10</a>
+    </p>
+    <p class="date" data-fr="Dernière mise à jour : 14 septembre 2026."
+       data-en="Last updated: 14 September 2026.">Dernière mise à jour : 14 septembre 2026.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p><a href="./" data-fr="← Retour à l’accueil" data-en="← Back to home">← Retour à l’accueil</a></p>
+</footer>
+
+<script>
+  const elementsTraduits = Array.from(document.querySelectorAll('[data-fr][data-en]'));
+  function appliquerLangue(code) {
+    document.documentElement.lang = code;
+    for (const el of elementsTraduits) el.innerHTML = el.dataset[code];
+    for (const b of document.querySelectorAll('[data-langue]')) {
+      b.setAttribute('aria-pressed', String(b.dataset.langue === code));
+    }
+    try { localStorage.setItem('cauri-langue', code); } catch (e) {}
+  }
+  for (const b of document.querySelectorAll('[data-langue]')) {
+    b.addEventListener('click', () => appliquerLangue(b.dataset.langue));
+  }
+  let choisie = null;
+  try { choisie = localStorage.getItem('cauri-langue'); } catch (e) {}
+  // Les parentheses comptent : sans elles, « choisie || test » est evalue
+  // avant le ternaire, et une preference « en » retomberait sur « fr ».
+  const duNavigateur = (navigator.language || 'fr').slice(0, 2) === 'fr' ? 'fr' : 'en';
+  appliquerLangue(choisie || duNavigateur);
+</script>
+
+</body>
+</html>
