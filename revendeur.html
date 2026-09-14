@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cauri — Devenir revendeur / Become a reseller</title>
+<meta name="description" content="Gagnez 30 % sur chaque abonnement Cauri. Rien à avancer, rien à stocker. Pour qui connaît déjà des boutiques.">
+<meta name="theme-color" content="#0B6B53">
+<link rel="icon" type="image/png" href="icone.png">
+<meta property="og:title" content="4 500 F par boutique. Rien à avancer.">
+<meta property="og:description" content="Vous connaissez des commerçants. Vous leur installez Cauri. Vous gardez 30 % sur chaque abonnement, à vie tant qu'il renouvelle.">
+<meta property="og:image" content="https://johnibgg.github.io/cauri/icone.png">
+<meta property="og:url" content="https://johnibgg.github.io/cauri/revendeur.html">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Karla:wght@400;500;700&display=swap">
+<style>
+  :root {
+    --vert: #0B6B53; --vert-sombre: #064C3B; --or: #B07B1E; --or-clair: #FDF1DC;
+    --encre: #14231E; --gris: #5F6F69; --sable: #F7F4ED; --trait: #E1DACB;
+    --rouge: #C0392B;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--sable); color: var(--encre);
+    font: 400 17px/1.62 Karla, system-ui, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  header {
+    background: linear-gradient(160deg, var(--vert), var(--vert-sombre));
+    color: #fff; padding: 26px 22px 46px;
+  }
+  .dedans { max-width: 720px; margin: 0 auto; }
+  .haut { display: flex; align-items: center; gap: 14px; }
+  .marque { font: 900 22px Archivo, sans-serif; color: #fff; text-decoration: none; }
+  .bascule { margin-left: auto; display: flex; gap: 4px; }
+  .bascule button {
+    background: rgba(255,255,255,.12); color: #fff; border: 0;
+    font: 700 13px Karla, sans-serif; padding: 7px 13px; border-radius: 999px; cursor: pointer;
+  }
+  .bascule button[aria-pressed="true"] { background: var(--or); }
+  .oeil {
+    font: 600 12.5px/1 Karla, sans-serif; letter-spacing: .16em;
+    text-transform: uppercase; color: rgba(255,255,255,.62); margin: 26px 0 0;
+  }
+  h1 { font: 900 clamp(29px, 7vw, 44px)/1.1 Archivo, sans-serif; margin: 12px 0 12px; }
+  header p.chapeau { color: rgba(255,255,255,.84); margin: 0; font-size: 16.5px; }
+
+  main { max-width: 720px; margin: -24px auto 0; padding: 0 22px 20px; }
+
+  .bouton {
+    display: block; text-align: center; text-decoration: none;
+    background: #25D366; color: #06331B; font: 700 19px Archivo, sans-serif;
+    padding: 19px 22px; border-radius: 14px; margin: 0 0 10px;
+    box-shadow: 0 10px 26px rgba(6,76,59,.24);
+  }
+  .bouton small { display: block; font: 500 14px Karla, sans-serif; opacity: .72; margin-top: 4px; }
+  .secondaire {
+    display: block; text-align: center; text-decoration: none; color: var(--vert);
+    border: 1.5px solid var(--vert); background: #fff;
+    font: 700 16px Archivo, sans-serif; padding: 14px; border-radius: 12px;
+  }
+
+  section.bloc {
+    background: #fff; border: 1px solid var(--trait); border-radius: 16px;
+    padding: 22px 24px; margin-top: 26px;
+  }
+  section.bloc h2 { font: 700 20px/1.3 Archivo, sans-serif; margin: 0 0 12px; color: var(--vert); }
+  section.bloc p { margin: 0 0 12px; }
+  section.bloc p:last-child { margin-bottom: 0; }
+
+  table.argent { width: 100%; border-collapse: collapse; font-size: 16px; }
+  table.argent td { padding: 11px 0; border-bottom: 1px solid var(--trait); vertical-align: top; }
+  table.argent tr:last-child td { border-bottom: 0; }
+  table.argent td:last-child { text-align: right; font-weight: 700; white-space: nowrap; padding-left: 12px; }
+  table.argent tr.fort td { font-size: 19px; color: var(--vert); }
+
+  ol.etapes { list-style: none; counter-reset: e; padding: 0; margin: 4px 0 0; }
+  ol.etapes > li {
+    counter-increment: e; position: relative; padding: 0 0 0 56px; margin: 0 0 22px;
+  }
+  ol.etapes > li:last-child { margin-bottom: 0; }
+  ol.etapes > li::before {
+    content: counter(e); position: absolute; left: 0; top: 0;
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--vert); color: #fff;
+    font: 900 17px Archivo, sans-serif;
+    display: flex; align-items: center; justify-content: center;
+  }
+  ol.etapes h3 { font: 700 17.5px/1.35 Archivo, sans-serif; margin: 5px 0 5px; }
+  ol.etapes p { margin: 0; color: var(--gris); font-size: 16px; }
+
+  ul.puces { margin: 0; padding-left: 20px; }
+  ul.puces li { margin-bottom: 9px; }
+  ul.puces li:last-child { margin-bottom: 0; }
+
+  .franc {
+    background: var(--or-clair); border-left: 4px solid var(--or);
+    padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 0;
+    font-size: 15.5px;
+  }
+  .franc p { margin: 0 0 10px; }
+  .franc p:last-child { margin: 0; }
+  .franc strong { color: #7A5210; }
+
+  .fin { text-align: center; padding: 34px 0 10px; }
+  .fin h2 { font: 900 clamp(23px, 5.6vw, 30px)/1.2 Archivo, sans-serif; margin: 0 0 10px; }
+  .fin p { color: var(--gris); margin: 0 0 20px; }
+
+  a { color: var(--vert); }
+  footer { max-width: 720px; margin: 0 auto; padding: 10px 22px 50px; color: var(--gris); font-size: 14.5px; text-align: center; }
+  footer a { margin: 0 8px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="dedans">
+    <div class="haut">
+      <a class="marque" href="./">Cauri</a>
+      <div class="bascule">
+        <button type="button" data-langue="fr" aria-pressed="true">FR</button>
+        <button type="button" data-langue="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+    <p class="oeil" data-fr="Devenir revendeur" data-en="Become a reseller">Devenir revendeur</p>
+    <h1 data-fr="4 500 F par boutique. Rien à avancer."
+        data-en="₦5,700 a shop. Nothing to put down.">4 500 F par boutique. Rien à avancer.</h1>
+    <p class="chapeau"
+       data-fr="Vous connaissez déjà des commerçants. Vous leur installez Cauri. Vous gardez 30 % sur chaque abonnement, tant qu’ils renouvellent."
+       data-en="You already know shopkeepers. You install Cauri for them. You keep 30 % of every subscription, for as long as they renew.">
+      Vous connaissez déjà des commerçants. Vous leur installez Cauri. Vous gardez 30 % sur chaque abonnement, tant qu’ils renouvellent.
+    </p>
+  </div>
+</header>
+
+<main>
+
+  <a class="bouton" id="wa" href="#"
+     data-fr="Écrire sur WhatsApp&lt;small&gt;réponse le jour même&lt;/small&gt;"
+     data-en="Message on WhatsApp&lt;small&gt;same-day reply&lt;/small&gt;">
+     Écrire sur WhatsApp<small>réponse le jour même</small>
+  </a>
+  <a class="secondaire" href="app/"
+     data-fr="Voir l’application avant de décider"
+     data-en="See the app before deciding">Voir l’application avant de décider</a>
+
+  <section class="bloc">
+    <h2 data-fr="Ce que vous gagnez" data-en="What you earn">Ce que vous gagnez</h2>
+    <table class="argent">
+      <tr>
+        <td data-fr="Sur un abonnement d’un an" data-en="On a one-year subscription">Sur un abonnement d’un an</td>
+        <td data-fr="4 500 F" data-en="₦5,700">4 500 F</td>
+      </tr>
+      <tr>
+        <td data-fr="Sur un abonnement d’un mois" data-en="On a one-month subscription">Sur un abonnement d’un mois</td>
+        <td data-fr="600 F" data-en="₦750">600 F</td>
+      </tr>
+      <tr class="fort">
+        <td data-fr="20 boutiques à l’année" data-en="20 shops on the yearly plan">20 boutiques à l’année</td>
+        <td data-fr="90 000 F" data-en="₦114,000">90 000 F</td>
+      </tr>
+      <tr>
+        <td data-fr="Mise de départ" data-en="Money up front">Mise de départ</td>
+        <td data-fr="zéro" data-en="zero">zéro</td>
+      </tr>
+      <tr>
+        <td data-fr="Stock à acheter, local à louer" data-en="Stock to buy, shop to rent">Stock à acheter, local à louer</td>
+        <td data-fr="aucun" data-en="none">aucun</td>
+      </tr>
+    </table>
+    <p style="margin-top:16px"
+       data-fr="Payé une fois par mois, le même jour, par mobile money. Vous recevez le détail avec le virement : combien d’abonnements, lesquels, combien pour vous."
+       data-en="Paid once a month, the same day each month, by mobile money. You get the breakdown with the transfer: how many subscriptions, which ones, how much is yours.">
+      Payé une fois par mois, le même jour, par mobile money. Vous recevez le détail avec le virement : combien d’abonnements, lesquels, combien pour vous.
+    </p>
+  </section>
+
+  <section class="bloc">
+    <h2 data-fr="La partie qu’on ne vous dira pas ailleurs" data-en="The part nobody else will tell you">La partie qu’on ne vous dira pas ailleurs</h2>
+    <div class="franc">
+      <p data-fr="Il faut installer environ &lt;strong&gt;60 boutiques pour en voir 20 payer&lt;/strong&gt;. Les quarante autres essaieront et s’arrêteront. C’est normal, c’est le métier."
+         data-en="You have to install roughly &lt;strong&gt;60 shops to get 20 paying&lt;/strong&gt;. The other forty will try it and stop. That is normal; that is the job.">
+        Il faut installer environ <strong>60 boutiques pour en voir 20 payer</strong>. Les quarante autres essaieront et s’arrêteront. C’est normal, c’est le métier.
+      </p>
+      <p data-fr="Si quelqu’un vous promet un succès facile, il vous ment. Nous préférons que vous le sachiez avant de commencer plutôt qu’après votre premier refus."
+         data-en="If someone promises you easy money, they are lying to you. We would rather you knew before you start than after your first rejection.">
+        Si quelqu’un vous promet un succès facile, il vous ment. Nous préférons que vous le sachiez avant de commencer plutôt qu’après votre premier refus.
+      </p>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <h2 data-fr="Comment ça se passe chez le commerçant" data-en="How it goes in the shop">Comment ça se passe chez le commerçant</h2>
+    <ol class="etapes">
+      <li>
+        <h3 data-fr="Vous posez une question" data-en="You ask one question">Vous posez une question</h3>
+        <p data-fr="« Vous avez combien de personnes qui vous doivent de l’argent en ce moment ? » Laissez-le chercher. C’est ce moment qui vend, pas la suite."
+           data-en="“How many people owe you money right now?” Let him search for the answer. That moment is what sells, not what comes after.">
+          « Vous avez combien de personnes qui vous doivent de l’argent en ce moment ? » Laissez-le chercher. C’est ce moment qui vend, pas la suite.
+        </p>
+      </li>
+      <li>
+        <h3 data-fr="Vous installez. Deux minutes." data-en="You install it. Two minutes.">Vous installez. Deux minutes.</h3>
+        <p data-fr="17 Mo, sur son téléphone à lui. Pas de compte à créer, pas de connexion nécessaire ensuite."
+           data-en="17 MB, on his own phone. No account to create, no connection needed afterwards.">
+          17 Mo, sur son téléphone à lui. Pas de compte à créer, pas de connexion nécessaire ensuite.
+        </p>
+      </li>
+      <li>
+        <h3 data-fr="L’application lui demande ses crédits" data-en="The app asks him for his credits">L’application lui demande ses crédits</h3>
+        <p data-fr="Toute seule, au premier lancement. Trois noms, trois montants. Le total monte en rouge pendant qu’il tape. Tendez-lui le téléphone, ne remplissez pas à sa place."
+           data-en="By itself, on first launch. Three names, three amounts. The total climbs in red as he types. Hand him the phone; do not fill it in for him.">
+          Toute seule, au premier lancement. Trois noms, trois montants. Le total monte en rouge pendant qu’il tape. Tendez-lui le téléphone, ne remplissez pas à sa place.
+        </p>
+      </li>
+      <li>
+        <h3 data-fr="Vous vous taisez" data-en="You say nothing">Vous vous taisez</h3>
+        <p data-fr="Il vient de voir une somme qu’il ne connaissait pas, sur ses propres chiffres. Laissez-le la regarder."
+           data-en="He has just seen a number he did not know, built from his own figures. Let him look at it.">
+          Il vient de voir une somme qu’il ne connaissait pas, sur ses propres chiffres. Laissez-le la regarder.
+        </p>
+      </li>
+      <li>
+        <h3 data-fr="Vous partez sans rien vendre" data-en="You leave without selling anything">Vous partez sans rien vendre</h3>
+        <p data-fr="« C’est gratuit, vous avez 14 jours. Servez-vous-en une semaine, je repasse vendredi. » S’il s’en est servi, il achètera. Sinon, aucun discours ne l’aurait sauvé."
+           data-en="“It is free, you have 14 days. Use it for a week; I will come back on Friday.” If he used it, he will buy. If not, no sales pitch would have saved it.">
+          « C’est gratuit, vous avez 14 jours. Servez-vous-en une semaine, je repasse vendredi. » S’il s’en est servi, il achètera. Sinon, aucun discours ne l’aurait sauvé.
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bloc">
+    <h2 data-fr="Ce qu’on vous donne" data-en="What we give you">Ce qu’on vous donne</h2>
+    <ul class="puces">
+      <li data-fr="&lt;strong&gt;Une fiche A4 à votre nom&lt;/strong&gt;, avec votre numéro et un QR code — celle que le commerçant garde sur son comptoir."
+          data-en="&lt;strong&gt;An A4 sheet in your name&lt;/strong&gt;, with your phone number and a QR code — the one the shopkeeper keeps on the counter."><strong>Une fiche A4 à votre nom</strong>, avec votre numéro et un QR code — celle que le commerçant garde sur son comptoir.</li>
+      <li data-fr="&lt;strong&gt;Cinq abonnements d’un an, gratuits&lt;/strong&gt;, à placer chez les cinq commerçants les plus bavards du marché. Quand ces cinq-là disent « moi je m’en sers », les autres écoutent."
+          data-en="&lt;strong&gt;Five one-year subscriptions, free&lt;/strong&gt;, to place with the five most talkative traders in the market. When those five say “I use it”, the others listen."><strong>Cinq abonnements d’un an, gratuits</strong>, à placer chez les cinq commerçants les plus bavards du marché. Quand ces cinq-là disent « moi je m’en sers », les autres écoutent.</li>
+      <li data-fr="&lt;strong&gt;Des vidéos courtes&lt;/strong&gt; à faire suivre en statut WhatsApp, prêtes à publier."
+          data-en="&lt;strong&gt;Short videos&lt;/strong&gt; to forward as WhatsApp statuses, ready to post."><strong>Des vidéos courtes</strong> à faire suivre en statut WhatsApp, prêtes à publier.</li>
+      <li data-fr="&lt;strong&gt;Les réponses aux objections&lt;/strong&gt; que vous entendrez : « ça va prendre mes données », « je n’ai pas de connexion », « c’est cher », « mon neveu s’en occupera »."
+          data-en="&lt;strong&gt;Answers to the objections&lt;/strong&gt; you will hear: “it will take my data”, “I have no connection”, “it is expensive”, “my nephew will handle it”."><strong>Les réponses aux objections</strong> que vous entendrez : « ça va prendre mes données », « je n’ai pas de connexion », « c’est cher », « mon neveu s’en occupera ».</li>
+    </ul>
+  </section>
+
+  <section class="bloc">
+    <h2 data-fr="Qui réussit à ce métier" data-en="Who does well at this">Qui réussit à ce métier</h2>
+    <p data-fr="Pas les commerciaux. Les gens à qui les boutiques ouvrent la porte sans rendez-vous :"
+       data-en="Not salespeople. People whom shops let in without an appointment:">
+      Pas les commerciaux. Les gens à qui les boutiques ouvrent la porte sans rendez-vous :
+    </p>
+    <ul class="puces">
+      <li data-fr="vendeur de crédit téléphonique, agent mobile money — vous connaissez cinquante boutiques par leur prénom ;"
+          data-en="airtime vendor, mobile-money agent — you know fifty shops by first name;">vendeur de crédit téléphonique, agent mobile money — vous connaissez cinquante boutiques par leur prénom ;</li>
+      <li data-fr="grossiste ou livreur — vous revoyez les mêmes boutiques chaque semaine ;"
+          data-en="wholesaler or delivery rider — you see the same shops every week;">grossiste ou livreur — vous revoyez les mêmes boutiques chaque semaine ;</li>
+      <li data-fr="réparateur de téléphones — on vous croit sur les questions techniques, ce qui lève l’objection principale ;"
+          data-en="phone repairer — people trust you on technical questions, which removes the main objection;">réparateur de téléphones — on vous croit sur les questions techniques, ce qui lève l’objection principale ;</li>
+      <li data-fr="étudiant du quartier dont la mère tient une boutique."
+          data-en="a student from the neighbourhood whose mother runs a shop.">étudiant du quartier dont la mère tient une boutique.</li>
+    </ul>
+    <p style="margin-top:14px"
+       data-fr="Si vous ne connaissez personne et qu’il faut faire du porte-à-porte, ne commencez pas : vous abandonnerez en deux semaines, et ce sera du temps perdu pour vous."
+       data-en="If you know nobody and would have to go door to door, do not start: you will give up in two weeks, and that is your time wasted.">
+      Si vous ne connaissez personne et qu’il faut faire du porte-à-porte, ne commencez pas : vous abandonnerez en deux semaines, et ce sera du temps perdu pour vous.
+    </p>
+  </section>
+
+  <div class="fin">
+    <h2 data-fr="Dix minutes pour voir si ça vous va"
+        data-en="Ten minutes to see if it suits you">Dix minutes pour voir si ça vous va</h2>
+    <p data-fr="Écrivez, on vous montre. Pas de formulaire, pas d’engagement."
+       data-en="Message us and we will show you. No form, no commitment.">
+      Écrivez, on vous montre. Pas de formulaire, pas d’engagement.
+    </p>
+    <a class="bouton" id="wa2" href="#"
+       data-fr="Écrire sur WhatsApp&lt;small&gt;réponse le jour même&lt;/small&gt;"
+       data-en="Message on WhatsApp&lt;small&gt;same-day reply&lt;/small&gt;">
+       Écrire sur WhatsApp<small>réponse le jour même</small>
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <a href="./" data-fr="La page de Cauri" data-en="Cauri home">La page de Cauri</a>
+  <a href="app/" data-fr="Essayer" data-en="Try it">Essayer</a>
+  <a href="confidentialite.html" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a>
+</footer>
+
+<script>
+  const NUMERO = '2290151464510';
+  const MESSAGES = {
+    fr: "Bonjour, j'ai vu la page revendeur de Cauri. Je connais des commerçants et je voudrais en savoir plus.",
+    en: "Hello, I saw the Cauri reseller page. I know shopkeepers and I would like to know more."
+  };
+
+  const elementsTraduits = Array.from(document.querySelectorAll('[data-fr][data-en]'));
+  function appliquerLangue(code) {
+    document.documentElement.lang = code;
+    for (const el of elementsTraduits) el.innerHTML = el.dataset[code];
+    for (const b of document.querySelectorAll('[data-langue]')) {
+      b.setAttribute('aria-pressed', String(b.dataset.langue === code));
+    }
+    // Le lien WhatsApp porte deja le message : le candidat n'a qu'a appuyer
+    // sur envoyer. Un formulaire a remplir ferait partir la moitie d'entre eux.
+    const lien = 'https://wa.me/' + NUMERO + '?text=' + encodeURIComponent(MESSAGES[code]);
+    for (const a of document.querySelectorAll('#wa, #wa2')) a.href = lien;
+    try { localStorage.setItem('cauri-langue', code); } catch (e) {}
+  }
+  for (const b of document.querySelectorAll('[data-langue]')) {
+    b.addEventListener('click', () => appliquerLangue(b.dataset.langue));
+  }
+  let choisie = null;
+  try { choisie = localStorage.getItem('cauri-langue'); } catch (e) {}
+  const duNavigateur = (navigator.language || 'fr').slice(0, 2) === 'fr' ? 'fr' : 'en';
+  appliquerLangue(choisie || duNavigateur);
+</script>
+
+</body>
+</html>
