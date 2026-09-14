@@ -1,4 +1,18 @@
-<title>Cauri</title>
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cauri — Le carnet de crédits qui tient dans le téléphone</title>
+<meta name="description" content="Application de caisse et de crédits pour commerçants. Sans internet, sans compte, sans serveur. Android, 17 Mo, 14 jours de Pro offerts.">
+<meta name="theme-color" content="#0B6B53">
+<link rel="icon" type="image/png" href="icone.png">
+<meta property="og:title" content="Votre cahier vous vole de l’argent.">
+<meta property="og:description" content="Cauri retient qui vous doit quoi, ce qu’il reste en stock, et ce que vous avez vraiment gagné aujourd’hui. Sans internet.">
+<meta property="og:image" content="https://johnibgg.github.io/cauri/icone.png">
+<meta property="og:url" content="https://johnibgg.github.io/cauri/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Karla:wght@400;500;700&family=Caveat:wght@500;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
@@ -7,8 +21,8 @@
   ╔══════════════════════════════════════════════════════════════════╗
   ║  QUATRE CHOSES A REMPLACER AVANT DE METTRE CETTE PAGE EN LIGNE   ║
   ║                                                                  ║
-  ║   1. href="https://johnibgg.github.io/cauri/Cauri-1.0.0.apk"        ║
-  ║   2. href="https://johnibgg.github.io/cauri/Cauri-1.0.0-64bits.apk"          ║
+  ║   1. href="https://johnibgg.github.io/cauri/Cauri.apk"        ║
+  ║   2. href="https://johnibgg.github.io/cauri/Cauri-64bits.apk"          ║
   ║   3. href="https://johnibgg.github.io/cauri/app/"                              ║
   ║   4. href="https://wa.me/2290151464510"   ← votre numero WhatsApp  ║
   ║                                                                  ║
@@ -130,8 +144,9 @@
   .bascule button:focus-visible { outline: 2px solid var(--or); outline-offset: 2px; }
 
   /* --------------------------------------------------------------- hero */
-  .hero { padding: 64px 0 28px; display: grid; gap: 48px; grid-template-columns: 1fr; align-items: center; }
-  @media (min-width: 1020px) { .hero { grid-template-columns: 1.04fr .96fr; padding: 84px 0 44px; } }
+  .hero { padding: 64px 0 28px; display: grid; gap: 48px; grid-template-columns: minmax(0, 1fr); align-items: center; }
+  .hero > * { min-width: 0; }
+  @media (min-width: 1020px) { .hero { grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr); padding: 84px 0 44px; } }
 
   .hero .accroche { display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
   .hero p.chapeau { color: var(--doux); font-size: 1.16rem; max-width: 52ch; }
@@ -152,7 +167,13 @@
   .petit { font-size: .87rem; color: var(--doux); }
 
   /* ------------------------------------------- le cahier contre l'ecran */
-  .duel { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: end; }
+  /* Sur un telephone, deux cartes cote a cote laissent 115 px par ligne :
+     « Adjoa Hounkpatin 2 655 » n'y entre pas, et le montant sortait de sa
+     ligne. Empilees, les deux gardent toute la largeur — la comparaison
+     tient toujours, ce sont les legendes AVANT / APRES qui la portent. */
+  .duel { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; align-items: end; }
+  @media (min-width: 560px) { .duel { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; } }
+  .duel > * { min-width: 0; }
 
   .cahier {
     background: var(--papier);
@@ -314,6 +335,8 @@
     * { animation: none !important; transition: none !important; }
   }
 </style>
+</head>
+<body>
 
 <header>
   <div class="enveloppe barre">
@@ -357,7 +380,7 @@
         <a class="bouton plein" href="https://johnibgg.github.io/cauri/app/">
           <span data-fr="Essayer sans installer" data-en="Try it, no install">Essayer sans installer</span>
         </a>
-        <a class="bouton vide" href="https://johnibgg.github.io/cauri/Cauri-1.0.0.apk">
+        <a class="bouton vide" href="https://johnibgg.github.io/cauri/Cauri.apk">
           <span data-fr="Télécharger l’application" data-en="Download the app">Télécharger l’application</span>
         </a>
       </div>
@@ -532,7 +555,7 @@
           <li><span class="coche">✓</span><span data-fr="30 produits" data-en="30 products">30 produits</span></li>
           <li><span class="coche">✓</span><span data-fr="3 clients à crédit" data-en="3 credit customers">3 clients à crédit</span></li>
           <li><span class="coche">✓</span><span data-fr="Rapports sur 7 jours" data-en="7-day reports">Rapports sur 7 jours</span></li>
-          <li><span class="tiret">—</span><span style="color:var(--doux)" data-fr="Sauvegarde et export" data-en="Backup and export">Sauvegarde et export</span></li>
+          <li><span class="coche">✓</span><span data-fr="Sauvegarde automatique, chaque jour" data-en="Automatic backup, every day">Sauvegarde automatique, chaque jour</span></li>
         </ul>
       </div>
 
@@ -548,7 +571,6 @@
           <li><span class="coche">✓</span><span data-fr="Carnet de crédits sans limite — relances, historique, soldes" data-en="Unlimited credit book — reminders, history, balances">Carnet de crédits sans limite — relances, historique, soldes</span></li>
           <li><span class="coche">✓</span><span data-fr="Produits et stock sans limite" data-en="Unlimited products and stock">Produits et stock sans limite</span></li>
           <li><span class="coche">✓</span><span data-fr="Rapports du mois et de l’année, meilleurs produits, marges" data-en="Monthly and yearly reports, best sellers, margins">Rapports du mois et de l’année, meilleurs produits, marges</span></li>
-          <li><span class="coche">✓</span><span data-fr="Sauvegarde en un fichier, à ranger où vous voulez" data-en="Backup to a single file, kept wherever you like">Sauvegarde en un fichier, à ranger où vous voulez</span></li>
           <li><span class="coche">✓</span><span data-fr="Reçus à votre seul nom" data-en="Receipts in your name alone">Reçus à votre seul nom</span></li>
         </ul>
         <p class="petit"
@@ -612,11 +634,12 @@
       </div>
       <div>
         <h3 data-fr="Et si je perds mon téléphone ?" data-en="What if I lose my phone?">Et si je perds mon téléphone ?</h3>
-        <p data-fr="Avec Pro, vous faites une sauvegarde : un seul fichier, que vous vous envoyez sur WhatsApp ou que vous gardez sur une carte mémoire. Sur le nouveau téléphone, vous le rechargez et tout revient."
-           data-en="With Pro you export a backup: one file, which you can send yourself on WhatsApp or keep on a memory card. On the new phone you load it back and everything returns.">
-          Avec Pro, vous faites une sauvegarde : un seul fichier, que vous vous
-          envoyez sur WhatsApp ou que vous gardez sur une carte mémoire. Sur le
-          nouveau téléphone, vous le rechargez et tout revient.
+        <p data-fr="La sauvegarde est gratuite, avec ou sans abonnement. L’application écrit une copie chaque jour, et vous rappelle chaque semaine de vous l’envoyer sur WhatsApp. Sur le nouveau téléphone, vous rechargez ce fichier et tout revient — les créances, le stock, l’historique."
+           data-en="Backup is free, on every plan. The app writes a copy every day, and reminds you each week to send it to yourself on WhatsApp. On the new phone you load that file back and everything returns — debts, stock, history.">
+          La sauvegarde est gratuite, avec ou sans abonnement. L’application
+          écrit une copie chaque jour, et vous rappelle chaque semaine de vous
+          l’envoyer sur WhatsApp. Sur le nouveau téléphone, vous rechargez ce
+          fichier et tout revient — les créances, le stock, l’historique.
         </p>
       </div>
       <div>
@@ -651,7 +674,7 @@
       le total. C’est en général à ce moment-là qu’on comprend.
     </p>
     <div class="boutons" style="justify-content:center">
-      <a class="bouton plein" href="https://johnibgg.github.io/cauri/Cauri-1.0.0.apk">
+      <a class="bouton plein" href="https://johnibgg.github.io/cauri/Cauri.apk">
         <span data-fr="Télécharger pour Android" data-en="Download for Android">Télécharger pour Android</span>
       </a>
       <a class="bouton vide" href="https://johnibgg.github.io/cauri/app/">
@@ -659,7 +682,7 @@
       </a>
     </div>
     <p class="petit">
-      <a href="https://johnibgg.github.io/cauri/Cauri-1.0.0-64bits.apk"
+      <a href="https://johnibgg.github.io/cauri/Cauri-64bits.apk"
          data-fr="Version 64 bits (téléphones récents)"
          data-en="64-bit build (newer phones)">Version 64 bits (téléphones récents)</a>
     </p>
@@ -734,3 +757,5 @@
   }
   appliquerDevise('XOF');
 </script>
+</body>
+</html>

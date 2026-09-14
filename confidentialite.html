@@ -102,7 +102,7 @@
        data-en="You can check this yourself, without taking our word for it, with any APK analyser:">
       Vous pouvez le vérifier vous-même, sans nous croire sur parole, avec n’importe quel analyseur d’APK :
     </p>
-    <p><code>aapt2 dump permissions Cauri-1.0.0.apk</code></p>
+    <p><code>aapt2 dump permissions Cauri.apk</code></p>
     <p data-fr="La seule ligne qui apparaît est une permission interne d’Android, de niveau signature, qui ne donne accès à rien d’extérieur."
        data-en="The only line that appears is an internal Android permission, at signature level, which grants access to nothing outside the app.">
       La seule ligne qui apparaît est une permission interne d’Android, de niveau signature, qui ne donne accès à rien d’extérieur.
@@ -121,6 +121,14 @@
     </p>
 
     <h3 data-fr="La sauvegarde" data-en="Backups">La sauvegarde</h3>
+    <p data-fr="Depuis la version 1.1, Cauri écrit chaque jour une copie de vos données, toute seule, au démarrage. Cette copie reste dans l’espace privé de l’application, sur votre téléphone : elle ne part nulle part et personne d’autre ne peut la lire. Les sept dernières sont conservées, les plus anciennes sont effacées."
+       data-en="Since version 1.1, Cauri writes a copy of your data every day, by itself, at startup. That copy stays inside the app’s private space on your phone: it goes nowhere, and nobody else can read it. The last seven are kept; older ones are deleted.">
+      Depuis la version 1.1, Cauri écrit chaque jour une copie de vos données, toute seule, au démarrage. Cette copie reste dans l’espace privé de l’application, sur votre téléphone : elle ne part nulle part et personne d’autre ne peut la lire. Les sept dernières sont conservées, les plus anciennes sont effacées.
+    </p>
+    <p data-fr="Cette copie automatique vous protège d’une fausse manœuvre, pas d’un téléphone perdu : elle disparaît avec l’application si vous la désinstallez. C’est pourquoi Cauri vous rappelle chaque semaine d’en envoyer une hors du téléphone."
+       data-en="That automatic copy protects you from a slip of the hand, not from losing the phone: it disappears with the app if you uninstall it. This is why Cauri reminds you each week to send one off the phone.">
+      Cette copie automatique vous protège d’une fausse manœuvre, pas d’un téléphone perdu : elle disparaît avec l’application si vous la désinstallez. C’est pourquoi Cauri vous rappelle chaque semaine d’en envoyer une hors du téléphone.
+    </p>
     <p data-fr="La fonction de sauvegarde écrit un fichier et vous le remet. C’est vous qui décidez où il va : WhatsApp, une carte mémoire, un courriel, un ordinateur. Il ne part vers aucun serveur, et il n’en existe aucune copie chez nous."
        data-en="The backup feature writes a file and hands it to you. You decide where it goes: WhatsApp, a memory card, an email, a computer. It is not sent to any server, and we hold no copy of it.">
       La fonction de sauvegarde écrit un fichier et vous le remet. C’est vous qui décidez où il va : WhatsApp, une carte mémoire, un courriel, un ordinateur. Il ne part vers aucun serveur, et il n’en existe aucune copie chez nous.
