@@ -1,0 +1,724 @@
+<title>Cauri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Karla:wght@400;500;700&family=Caveat:wght@500;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+
+<!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  QUATRE CHOSES A REMPLACER AVANT DE METTRE CETTE PAGE EN LIGNE   ║
+  ║                                                                  ║
+  ║   1. href="https://johnibgg.github.io/cauri/Cauri-1.0.0.apk"        ║
+  ║   2. href="https://johnibgg.github.io/cauri/Cauri-1.0.0-64bits.apk"          ║
+  ║   3. href="https://johnibgg.github.io/cauri/app/"                              ║
+  ║   4. href="https://wa.me/2290151464510"   ← votre numero WhatsApp  ║
+  ║                                                                  ║
+  ║  Cherchez « cauri.app » et « 22900000000 » : il n'y a rien       ║
+  ║  d'autre a changer.                                              ║
+  ╚══════════════════════════════════════════════════════════════════╝
+-->
+
+<style>
+  /* Dark-first : l'application se consulte le soir, quand on compte. */
+  :root {
+    --fond:        #0D1714;
+    --surface:     #142420;
+    --surface-2:   #1B2F29;
+    --bord:        #24403A;
+    --texte:       #E9F2EE;
+    --doux:        #8CA59D;
+    --vert:        #17A87F;
+    --vert-sourd:  #0E6B52;
+    --or:          #E3A63C;
+    --rouge:       #E4604B;
+    --papier:      #EDE6D5;
+    --papier-ligne:#C6BCA2;
+    --papier-encre:#2B3A34;
+    --ombre:       0 24px 60px -28px rgba(0,0,0,.75);
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --fond:       #F6F3EC;
+      --surface:    #FFFFFF;
+      --surface-2:  #EFEADF;
+      --bord:       #D9D2C3;
+      --texte:      #142420;
+      --doux:       #5F6F69;
+      --vert:       #0B6B53;
+      --vert-sourd: #17A87F;
+      --or:         #B07B1E;
+      --rouge:      #B8392A;
+      --papier:     #FFFCF4;
+      --papier-ligne:#D8CFB8;
+      --papier-encre:#243029;
+      --ombre:      0 20px 48px -30px rgba(20,36,32,.35);
+      color-scheme: light;
+    }
+  }
+  :root[data-theme="light"] {
+    --fond:       #F6F3EC;
+    --surface:    #FFFFFF;
+    --surface-2:  #EFEADF;
+    --bord:       #D9D2C3;
+    --texte:      #142420;
+    --doux:       #5F6F69;
+    --vert:       #0B6B53;
+    --vert-sourd: #17A87F;
+    --or:         #B07B1E;
+    --rouge:      #B8392A;
+    --papier:     #FFFCF4;
+    --papier-ligne:#D8CFB8;
+    --papier-encre:#243029;
+    --ombre:      0 20px 48px -30px rgba(20,36,32,.35);
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--fond);
+    color: var(--texte);
+    font-family: 'Karla', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .enveloppe { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  h1, h2, h3, .chiffre {
+    font-family: 'Archivo', system-ui, sans-serif;
+    text-wrap: balance;
+    margin: 0;
+  }
+  h1 { font-weight: 900; letter-spacing: -.028em; line-height: 1.02; font-size: clamp(2.6rem, 6.4vw, 4.6rem); }
+  h2 { font-weight: 800; letter-spacing: -.02em; line-height: 1.1;  font-size: clamp(1.7rem, 3.4vw, 2.5rem); }
+  h3 { font-weight: 700; letter-spacing: -.01em; font-size: 1.12rem; }
+  p  { margin: 0; }
+  a  { color: inherit; }
+
+  .oeil {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: .72rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--doux);
+  }
+
+  /* ------------------------------------------------------------- entete */
+  header {
+    position: sticky; top: 0; z-index: 30;
+    background: color-mix(in srgb, var(--fond) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--bord);
+  }
+  .barre { display: flex; align-items: center; gap: 18px; height: 62px; }
+  .marque { display: flex; align-items: center; gap: 10px; font-family: 'Archivo'; font-weight: 900; font-size: 1.22rem; letter-spacing: -.02em; }
+  .barre .pousse { margin-left: auto; }
+  .bascule {
+    display: flex; border: 1px solid var(--bord); border-radius: 999px;
+    padding: 3px; background: var(--surface); gap: 2px;
+  }
+  .bascule button {
+    font: 600 .78rem/1 'IBM Plex Mono', monospace;
+    letter-spacing: .06em;
+    border: 0; border-radius: 999px; padding: 7px 11px;
+    background: transparent; color: var(--doux); cursor: pointer;
+  }
+  .bascule button[aria-pressed="true"] { background: var(--vert); color: #fff; }
+  .bascule button:focus-visible { outline: 2px solid var(--or); outline-offset: 2px; }
+
+  /* --------------------------------------------------------------- hero */
+  .hero { padding: 64px 0 28px; display: grid; gap: 48px; grid-template-columns: 1fr; align-items: center; }
+  @media (min-width: 1020px) { .hero { grid-template-columns: 1.04fr .96fr; padding: 84px 0 44px; } }
+
+  .hero .accroche { display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
+  .hero p.chapeau { color: var(--doux); font-size: 1.16rem; max-width: 52ch; }
+  .souligne { color: var(--or); }
+
+  .boutons { display: flex; flex-wrap: wrap; gap: 12px; }
+  .bouton {
+    display: inline-flex; align-items: center; gap: 9px;
+    font: 700 1rem/1 'Archivo', sans-serif;
+    padding: 15px 22px; border-radius: 12px; text-decoration: none;
+    border: 1px solid transparent; transition: transform .12s ease, background .12s ease;
+  }
+  .bouton:hover { transform: translateY(-1px); }
+  .bouton:focus-visible { outline: 2px solid var(--or); outline-offset: 3px; }
+  .bouton.plein { background: var(--vert); color: #fff; }
+  .bouton.plein:hover { background: var(--vert-sourd); }
+  .bouton.vide { border-color: var(--bord); color: var(--texte); background: var(--surface); }
+  .petit { font-size: .87rem; color: var(--doux); }
+
+  /* ------------------------------------------- le cahier contre l'ecran */
+  .duel { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: end; }
+
+  .cahier {
+    background: var(--papier);
+    color: var(--papier-encre);
+    border-radius: 4px 10px 10px 4px;
+    padding: 20px 16px 22px 26px;
+    transform: rotate(-2.1deg);
+    box-shadow: var(--ombre);
+    position: relative;
+    background-image: repeating-linear-gradient(
+      to bottom, transparent 0 27px, var(--papier-ligne) 27px 28px);
+    background-position: 0 34px;
+    min-height: 310px;
+  }
+  .cahier::before {
+    content: ""; position: absolute; inset: 0 auto 0 11px; width: 1px;
+    background: color-mix(in srgb, var(--rouge) 55%, transparent);
+  }
+  .cahier .entete {
+    font: 700 1.02rem/1 'Caveat', cursive; letter-spacing: .02em;
+    padding-bottom: 12px; margin-bottom: 6px;
+  }
+  .cahier ul { list-style: none; margin: 0; padding: 0; font-family: 'Caveat', cursive; font-size: 1.28rem; white-space: nowrap; }
+  .cahier li { display: flex; justify-content: space-between; gap: 10px; height: 28px; align-items: center; }
+  .cahier li.barre-dessus { text-decoration: line-through; opacity: .5; }
+  .cahier .doute { color: var(--rouge); font-weight: 700; }
+  .cahier .tache {
+    position: absolute; right: 16px; bottom: 14px;
+    font: 700 1.1rem/1.25 'Caveat', cursive; color: var(--rouge);
+    transform: rotate(-6deg); text-align: right;
+  }
+
+  .telephone {
+    background: var(--surface); border: 1px solid var(--bord);
+    border-radius: 22px; padding: 8px; box-shadow: var(--ombre);
+  }
+  .ecran { background: var(--fond); border-radius: 16px; overflow: hidden; }
+  .ecran .titre {
+    background: var(--vert); color: #fff; padding: 13px 15px;
+    font: 800 .95rem/1 'Archivo', sans-serif;
+  }
+  .ecran .total {
+    margin: 12px; padding: 13px 14px; border-radius: 12px;
+    background: color-mix(in srgb, var(--rouge) 13%, var(--surface));
+    border: 1px solid color-mix(in srgb, var(--rouge) 30%, transparent);
+  }
+  .ecran .total .oeil { color: var(--rouge); letter-spacing: .06em; font-size: .66rem; }
+  .ecran .total .chiffre {
+    font-weight: 900; font-size: 1.85rem; color: var(--rouge);
+    font-variant-numeric: tabular-nums; letter-spacing: -.02em;
+  }
+  .ecran ol { list-style: none; margin: 0; padding: 0 12px 12px; display: flex; flex-direction: column; gap: 1px; }
+  .ecran ol li {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 4px; border-top: 1px solid var(--bord); font-size: .84rem; line-height: 1.3;
+  }
+  .pastille {
+    width: 28px; height: 28px; flex: none; border-radius: 9px;
+    background: color-mix(in srgb, var(--rouge) 18%, transparent);
+    color: var(--rouge); display: grid; place-items: center;
+    font: 800 .8rem/1 'Archivo', sans-serif;
+  }
+  .ecran ol li b { margin-left: auto; color: var(--rouge); font-variant-numeric: tabular-nums;
+    font-family: 'IBM Plex Mono', monospace; font-size: .82rem; white-space: nowrap; }
+  .legende { text-align: center; margin-top: 10px; }
+
+  /* ------------------------------------------------------------ bandeau */
+  .bandeau {
+    border-block: 1px solid var(--bord);
+    margin-top: 46px; padding: 18px 0;
+    background: var(--surface);
+  }
+  .bandeau .enveloppe { display: flex; flex-wrap: wrap; gap: 10px 34px; align-items: center; justify-content: center; }
+  .bandeau span { font: 600 .85rem/1 'IBM Plex Mono', monospace; color: var(--doux); letter-spacing: .02em; }
+  .bandeau span::before { content: "— "; color: var(--vert); }
+
+  /* --------------------------------------------------------- les verites */
+  section { padding: 78px 0; }
+  .intro { display: flex; flex-direction: column; gap: 14px; max-width: 62ch; margin-bottom: 44px; }
+
+  .verites { display: grid; gap: 1px; background: var(--bord); border: 1px solid var(--bord); border-radius: 16px; overflow: hidden; }
+  @media (min-width: 760px) { .verites { grid-template-columns: 1fr 1fr; } }
+  .verite { background: var(--surface); padding: 28px 26px; display: flex; flex-direction: column; gap: 9px; }
+  .verite .oeil { color: var(--vert); }
+  .verite p { color: var(--doux); font-size: .98rem; }
+
+  /* ------------------------------------------------------------- preuve */
+  .preuve {
+    display: grid; gap: 26px; align-items: center;
+    border: 1px solid var(--bord); border-radius: 18px; padding: 30px;
+    background: linear-gradient(140deg, var(--surface), var(--surface-2));
+  }
+  @media (min-width: 820px) { .preuve { grid-template-columns: 1.1fr .9fr; padding: 40px; } }
+  .manifeste {
+    font-family: 'IBM Plex Mono', monospace; font-size: .8rem; line-height: 1.85;
+    background: var(--fond); border: 1px solid var(--bord); border-radius: 12px;
+    padding: 18px 20px; overflow-x: auto; color: var(--doux);
+  }
+  .manifeste .cle { color: var(--texte); }
+  .manifeste .rien { color: var(--vert); font-weight: 600; }
+
+  /* ------------------------------------------------------------- tarifs */
+  .zone { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+  .zone button {
+    font: 600 .84rem/1 'Karla', sans-serif; cursor: pointer;
+    border: 1px solid var(--bord); background: var(--surface); color: var(--doux);
+    border-radius: 999px; padding: 9px 15px;
+  }
+  .zone button[aria-pressed="true"] { background: var(--vert); border-color: var(--vert); color: #fff; }
+  .zone button:focus-visible { outline: 2px solid var(--or); outline-offset: 2px; }
+
+  .grille-prix { display: grid; gap: 16px; }
+  @media (min-width: 780px) { .grille-prix { grid-template-columns: 1fr 1.25fr; align-items: start; } }
+
+  .offre {
+    border: 1px solid var(--bord); border-radius: 16px; background: var(--surface);
+    padding: 26px; display: flex; flex-direction: column; gap: 14px;
+  }
+  .offre.pro { border-color: var(--vert); background: linear-gradient(150deg, var(--surface), color-mix(in srgb, var(--vert) 10%, var(--surface))); }
+  .offre .prix { font: 900 2.5rem/1 'Archivo', sans-serif; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+  .offre .prix small { font: 500 .95rem/1 'Karla', sans-serif; color: var(--doux); letter-spacing: 0; }
+  .offre ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; font-size: .95rem; }
+  .offre li { display: flex; gap: 10px; align-items: flex-start; }
+  .coche { color: var(--vert); font-weight: 700; flex: none; }
+  .tiret { color: var(--doux); flex: none; }
+  .etiquette {
+    align-self: flex-start; font: 700 .68rem/1 'IBM Plex Mono', monospace;
+    letter-spacing: .14em; text-transform: uppercase;
+    background: color-mix(in srgb, var(--or) 20%, transparent);
+    color: var(--or); padding: 6px 10px; border-radius: 999px;
+  }
+
+  /* -------------------------------------------------------- revendeurs */
+  .revendeur {
+    border: 1px solid var(--bord); border-radius: 18px; overflow: hidden;
+    display: grid; gap: 0;
+  }
+  @media (min-width: 820px) { .revendeur { grid-template-columns: 1.15fr .85fr; } }
+  .revendeur .mot { padding: 34px; background: var(--surface); display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+  .compte { padding: 34px; background: var(--surface-2); display: flex; flex-direction: column; gap: 2px; justify-content: center; }
+  .compte .ligne { display: flex; justify-content: space-between; gap: 16px; padding: 9px 0; font-family: 'IBM Plex Mono', monospace; font-size: .88rem; border-bottom: 1px dashed var(--bord); }
+  .compte .ligne:last-child { border-bottom: 0; padding-top: 15px; }
+  .compte .ligne b { font-variant-numeric: tabular-nums; }
+  .compte .total-ligne b { color: var(--vert); font-size: 1.3rem; font-family: 'Archivo'; font-weight: 900; }
+
+  /* --------------------------------------------------------------- faq */
+  .faq { display: grid; gap: 1px; background: var(--bord); border: 1px solid var(--bord); border-radius: 16px; overflow: hidden; }
+  .faq > div { background: var(--surface); padding: 24px 26px; display: flex; flex-direction: column; gap: 7px; }
+  .faq p { color: var(--doux); font-size: .97rem; }
+
+  /* ---------------------------------------------------------- fin, pied */
+  .fin {
+    text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px;
+    border-top: 1px solid var(--bord); padding: 78px 0 20px;
+  }
+  footer { padding: 30px 0 56px; color: var(--doux); font-size: .84rem; display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+
+<header>
+  <div class="enveloppe barre">
+    <span class="marque">
+      <svg width="22" height="26" viewBox="0 0 22 26" aria-hidden="true">
+        <ellipse cx="11" cy="13" rx="10" ry="12.5" fill="var(--or)"/>
+        <path d="M11 3.2 C13 8 13 18 11 22.8 C9 18 9 8 11 3.2 Z" fill="var(--fond)"/>
+        <g stroke="var(--fond)" stroke-width="1.5" stroke-linecap="round">
+          <path d="M6.4 8.5h2.2M6.0 11.4h2.4M6.0 14.6h2.4M6.4 17.5h2.2"/>
+          <path d="M13.4 8.5h2.2M13.6 11.4h2.4M13.6 14.6h2.4M13.4 17.5h2.2"/>
+        </g>
+      </svg>
+      Cauri
+    </span>
+    <div class="pousse bascule" role="group" aria-label="Langue / Language">
+      <button type="button" data-langue="fr" aria-pressed="true">FR</button>
+      <button type="button" data-langue="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main class="enveloppe">
+
+  <!-- ---------------------------------------------------------- hero -->
+  <div class="hero">
+    <div class="accroche">
+      <span class="oeil"
+            data-fr="Ventes · Stock · Carnet de crédits"
+            data-en="Sales · Stock · Credit book">Ventes · Stock · Carnet de crédits</span>
+      <h1 data-fr="Votre cahier vous vole de l’argent."
+          data-en="Your notebook is costing you money.">Votre cahier vous vole de l’argent.</h1>
+      <p class="chapeau"
+         data-fr="Pas parce que vous comptez mal. Parce qu’un cahier ne se relit pas. Cauri retient qui vous doit quoi, ce qu’il reste en stock, et ce que vous avez vraiment gagné aujourd’hui — &lt;span class='souligne'&gt;sans internet, sans compte, sans serveur.&lt;/span&gt;"
+         data-en="Not because you count badly. Because a notebook cannot be searched. Cauri remembers who owes you what, what is left on the shelf, and what you actually earned today — &lt;span class='souligne'&gt;with no internet, no account, no server.&lt;/span&gt;">
+        Pas parce que vous comptez mal. Parce qu’un cahier ne se relit pas. Cauri
+        retient qui vous doit quoi, ce qu’il reste en stock, et ce que vous avez
+        vraiment gagné aujourd’hui — <span class="souligne">sans internet, sans
+        compte, sans serveur.</span>
+      </p>
+      <div class="boutons">
+        <a class="bouton plein" href="https://johnibgg.github.io/cauri/app/">
+          <span data-fr="Essayer sans installer" data-en="Try it, no install">Essayer sans installer</span>
+        </a>
+        <a class="bouton vide" href="https://johnibgg.github.io/cauri/Cauri-1.0.0.apk">
+          <span data-fr="Télécharger l’application" data-en="Download the app">Télécharger l’application</span>
+        </a>
+      </div>
+      <p class="petit"
+         data-fr="Android 5 et plus · 17 Mo · gratuit, ventes illimitées · 14 jours de Pro offerts"
+         data-en="Android 5 and up · 17 MB · free, unlimited sales · 14 days of Pro included">
+        Android 5 et plus · 17 Mo · gratuit, ventes illimitées · 14 jours de Pro offerts
+      </p>
+    </div>
+
+    <div>
+      <div class="duel">
+        <figure style="margin:0">
+          <div class="cahier">
+            <div class="entete" data-fr="Crédits — septembre" data-en="Credit — September">Crédits — septembre</div>
+            <ul>
+              <li><span>Adjoa</span><span>2 500</span></li>
+              <li class="barre-dessus"><span>Kossi</span><span>1 200</span></li>
+              <li><span>Mama B.</span><span>4 000</span></li>
+              <li><span>Rachid</span><span class="doute">?</span></li>
+              <li><span>Clarisse</span><span>800</span></li>
+              <li class="barre-dessus"><span>Adjoa</span><span>1 500</span></li>
+              <li><span>Kossi (2)</span><span class="doute">?</span></li>
+            </ul>
+            <div class="tache" data-fr="total = ?" data-en="total = ?">total&nbsp;=&nbsp;?</div>
+          </div>
+          <figcaption class="legende oeil" data-fr="Avant" data-en="Before">Avant</figcaption>
+        </figure>
+
+        <figure style="margin:0">
+          <div class="telephone">
+            <div class="ecran">
+              <div class="titre" data-fr="Carnet de crédits" data-en="Credit book">Carnet de crédits</div>
+              <div class="total">
+                <div class="oeil" data-fr="On vous doit au total" data-en="You are owed in total">On vous doit au total</div>
+                <div class="chiffre">30 856 F</div>
+              </div>
+              <ol>
+                <li><span class="pastille">K</span> Kossi Adéchina <b>12 090</b></li>
+                <li><span class="pastille">M</span> Maman Bernadette <b>8 450</b></li>
+                <li><span class="pastille">T</span> Tantie Clarisse <b>4 000</b></li>
+                <li><span class="pastille">R</span> Rachidou <b>3 661</b></li>
+                <li><span class="pastille">A</span> Adjoa Hounkpatin <b>2 655</b></li>
+              </ol>
+            </div>
+          </div>
+          <figcaption class="legende oeil" data-fr="Après" data-en="After">Après</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="bandeau">
+  <div class="enveloppe">
+    <span data-fr="Aucun compte à créer" data-en="No account to create">Aucun compte à créer</span>
+    <span data-fr="Fonctionne en mode avion" data-en="Works in airplane mode">Fonctionne en mode avion</span>
+    <span data-fr="Vos chiffres restent sur le téléphone" data-en="Your figures stay on your phone">Vos chiffres restent sur le téléphone</span>
+    <span data-fr="Français · English" data-en="English · Français">Français · English</span>
+  </div>
+</div>
+
+<main class="enveloppe">
+
+  <!-- ------------------------------------------------------ les verites -->
+  <section>
+    <div class="intro">
+      <span class="oeil" data-fr="Ce que ça fait" data-en="What it does">Ce que ça fait</span>
+      <h2 data-fr="Quatre choses, faites correctement." data-en="Four things, done properly.">Quatre choses, faites correctement.</h2>
+    </div>
+    <div class="verites">
+      <div class="verite">
+        <span class="oeil">01</span>
+        <h3 data-fr="Le carnet de crédits" data-en="The credit book">Le carnet de crédits</h3>
+        <p data-fr="Qui vous doit quoi, depuis quand, et combien au total. La relance part sur WhatsApp en un geste, déjà rédigée, avec le bon montant."
+           data-en="Who owes you what, since when, and how much in total. The reminder goes out on WhatsApp in one tap, already written, with the right amount.">
+          Qui vous doit quoi, depuis quand, et combien au total. La relance part
+          sur WhatsApp en un geste, déjà rédigée, avec le bon montant.
+        </p>
+      </div>
+      <div class="verite">
+        <span class="oeil">02</span>
+        <h3 data-fr="La caisse" data-en="The till">La caisse</h3>
+        <p data-fr="Une vente en trois gestes. Le rendu de monnaie calculé à partir des coupures qu’on vous tend vraiment. Un reçu à partager, à votre nom."
+           data-en="A sale in three taps. Change worked out from the notes people actually hand you. A receipt to share, in your shop’s name.">
+          Une vente en trois gestes. Le rendu de monnaie calculé à partir des
+          coupures qu’on vous tend vraiment. Un reçu à partager, à votre nom.
+        </p>
+      </div>
+      <div class="verite">
+        <span class="oeil">03</span>
+        <h3 data-fr="Le stock" data-en="Stock">Le stock</h3>
+        <p data-fr="L’application prévient avant la rupture, pas après. Vous fixez le seuil vous-même, produit par produit."
+           data-en="It warns you before you run out, not after. You set the threshold yourself, product by product.">
+          L’application prévient avant la rupture, pas après. Vous fixez le seuil
+          vous-même, produit par produit.
+        </p>
+      </div>
+      <div class="verite">
+        <span class="oeil">04</span>
+        <h3 data-fr="Le bénéfice réel" data-en="Real profit">Le bénéfice réel</h3>
+        <p data-fr="Pas le chiffre d’affaires : ce qui reste une fois la marchandise et les charges payées. Et l’argent mis en stock n’est jamais compté comme une perte — c’est l’erreur que font la plupart des caisses."
+           data-en="Not revenue: what is left once goods and costs are paid. And money put into stock is never counted as a loss — the mistake most tills make.">
+          Pas le chiffre d’affaires : ce qui reste une fois la marchandise et les
+          charges payées. Et l’argent mis en stock n’est jamais compté comme une
+          perte — c’est l’erreur que font la plupart des caisses.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ----------------------------------------------------------- preuve -->
+  <section>
+    <div class="preuve">
+      <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start">
+        <span class="oeil" data-fr="Ce qu’on peut vérifier" data-en="What you can check">Ce qu’on peut vérifier</span>
+        <h2 data-fr="Elle n’a pas le droit d’aller sur internet."
+            data-en="It isn’t allowed on the internet.">Elle n’a pas le droit d’aller sur internet.</h2>
+        <p style="color:var(--doux);max-width:50ch"
+           data-fr="Ce n’est pas une promesse commerciale, c’est une ligne absente du fichier d’installation. Sans la permission INTERNET, Android empêche l’application d’ouvrir la moindre connexion. Elle ne peut pas envoyer vos chiffres ailleurs, même si elle le voulait. N’importe quel analyseur d’APK vous le confirmera."
+           data-en="This is not marketing language, it is a line missing from the installer. Without the INTERNET permission, Android stops the app opening any connection at all. It cannot send your figures anywhere, even if it wanted to. Any APK analyser will confirm it.">
+          Ce n’est pas une promesse commerciale, c’est une ligne absente du
+          fichier d’installation. Sans la permission INTERNET, Android empêche
+          l’application d’ouvrir la moindre connexion. Elle ne peut pas envoyer
+          vos chiffres ailleurs, même si elle le voulait. N’importe quel
+          analyseur d’APK vous le confirmera.
+        </p>
+      </div>
+      <div class="manifeste" aria-label="Permissions demandées par l’application">
+        <div><span class="cle">cauri-1.0.0.apk</span> › AndroidManifest.xml</div>
+        <div>&nbsp;</div>
+        <div><span class="cle">uses-permission INTERNET</span> … <span class="rien">absente</span></div>
+        <div><span class="cle">uses-permission LOCATION</span> … <span class="rien">absente</span></div>
+        <div><span class="cle">uses-permission CONTACTS</span> … <span class="rien">absente</span></div>
+        <div><span class="cle">uses-permission CAMERA</span> … <span class="rien">absente</span></div>
+        <div><span class="cle">uses-permission STORAGE</span> … <span class="rien">absente</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ----------------------------------------------------------- tarifs -->
+  <section>
+    <div class="intro">
+      <span class="oeil" data-fr="Le prix" data-en="Pricing">Le prix</span>
+      <h2 data-fr="Le prix d’ici, pas le prix de là-bas."
+          data-en="Priced where you are, not where we are.">Le prix d’ici, pas le prix de là-bas.</h2>
+      <p style="color:var(--doux)"
+         data-fr="Le tarif n’est pas converti au taux du jour. Il est calé sur le pouvoir d’achat local : partout, une année d’abonnement doit coûter à peu près une matinée de bénéfice."
+         data-en="The price is not converted at today’s exchange rate. It is set against local purchasing power: everywhere, a year should cost roughly one morning’s profit.">
+        Le tarif n’est pas converti au taux du jour. Il est calé sur le pouvoir
+        d’achat local : partout, une année d’abonnement doit coûter à peu près
+        une matinée de bénéfice.
+      </p>
+    </div>
+
+    <div class="zone" role="group" aria-label="Choisir la monnaie">
+      <button type="button" data-devise="XOF" aria-pressed="true">Franc CFA</button>
+      <button type="button" data-devise="NGN" aria-pressed="false">Naira</button>
+      <button type="button" data-devise="GHS" aria-pressed="false">Cedi</button>
+      <button type="button" data-devise="KES" aria-pressed="false">Shilling</button>
+      <button type="button" data-devise="INR" aria-pressed="false">Roupie</button>
+      <button type="button" data-devise="EUR" aria-pressed="false">Euro</button>
+      <button type="button" data-devise="USD" aria-pressed="false">Dollar</button>
+    </div>
+
+    <div class="grille-prix">
+      <div class="offre">
+        <h3 data-fr="Gratuit" data-en="Free">Gratuit</h3>
+        <div class="prix">0 <small data-fr="pour toujours" data-en="forever">pour toujours</small></div>
+        <ul>
+          <li><span class="coche">✓</span><span data-fr="Ventes illimitées" data-en="Unlimited sales">Ventes illimitées</span></li>
+          <li><span class="coche">✓</span><span data-fr="30 produits" data-en="30 products">30 produits</span></li>
+          <li><span class="coche">✓</span><span data-fr="3 clients à crédit" data-en="3 credit customers">3 clients à crédit</span></li>
+          <li><span class="coche">✓</span><span data-fr="Rapports sur 7 jours" data-en="7-day reports">Rapports sur 7 jours</span></li>
+          <li><span class="tiret">—</span><span style="color:var(--doux)" data-fr="Sauvegarde et export" data-en="Backup and export">Sauvegarde et export</span></li>
+        </ul>
+      </div>
+
+      <div class="offre pro">
+        <span class="etiquette" data-fr="14 jours offerts" data-en="14 days included">14 jours offerts</span>
+        <h3>Cauri Pro</h3>
+        <div class="prix"><span id="prix-an">15 000 F</span> <small data-fr="par an" data-en="a year">par an</small></div>
+        <p class="petit"><span id="prix-mois">2 000 F</span>
+          <span data-fr="par mois si vous préférez · soit" data-en="monthly if you prefer · that is">par mois si vous préférez · soit</span>
+          <span id="prix-jour">41 F</span>
+          <span data-fr="par jour" data-en="a day">par jour</span></p>
+        <ul>
+          <li><span class="coche">✓</span><span data-fr="Carnet de crédits sans limite — relances, historique, soldes" data-en="Unlimited credit book — reminders, history, balances">Carnet de crédits sans limite — relances, historique, soldes</span></li>
+          <li><span class="coche">✓</span><span data-fr="Produits et stock sans limite" data-en="Unlimited products and stock">Produits et stock sans limite</span></li>
+          <li><span class="coche">✓</span><span data-fr="Rapports du mois et de l’année, meilleurs produits, marges" data-en="Monthly and yearly reports, best sellers, margins">Rapports du mois et de l’année, meilleurs produits, marges</span></li>
+          <li><span class="coche">✓</span><span data-fr="Sauvegarde en un fichier, à ranger où vous voulez" data-en="Backup to a single file, kept wherever you like">Sauvegarde en un fichier, à ranger où vous voulez</span></li>
+          <li><span class="coche">✓</span><span data-fr="Reçus à votre seul nom" data-en="Receipts in your name alone">Reçus à votre seul nom</span></li>
+        </ul>
+        <p class="petit"
+           data-fr="Paiement unique. Aucun prélèvement automatique, aucune carte enregistrée. Mobile money, espèces ou carte."
+           data-en="One-off payment. No automatic renewal, no card kept on file. Mobile money, cash or card.">
+          Paiement unique. Aucun prélèvement automatique, aucune carte enregistrée.
+          Mobile money, espèces ou carte.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------- revendeurs -->
+  <section>
+    <div class="intro">
+      <span class="oeil" data-fr="Pour les revendeurs" data-en="For resellers">Pour les revendeurs</span>
+      <h2 data-fr="Vous connaissez cent commerçants ?" data-en="Do you know a hundred traders?">Vous connaissez cent commerçants ?</h2>
+    </div>
+    <div class="revendeur">
+      <div class="mot">
+        <p data-fr="Chacun d’eux tient un cahier de crédits, et chacun d’eux y perd de l’argent. Vous leur montrez l’application, ils l’essaient devant vous, et quand ils veulent continuer, vous encaissez."
+           data-en="Every one of them keeps a credit notebook, and every one of them loses money in it. You show them the app, they try it in front of you, and when they want to keep it, you take the payment.">
+          Chacun d’eux tient un cahier de crédits, et chacun d’eux y perd de
+          l’argent. Vous leur montrez l’application, ils l’essaient devant vous,
+          et quand ils veulent continuer, vous encaissez.
+        </p>
+        <p style="color:var(--doux)"
+           data-fr="Pas de stock à avancer. Pas de matériel. Pas de compte à créer pour le client. Vous m’envoyez son code appareil sur WhatsApp, je vous renvoie le code d’activation en quelques minutes."
+           data-en="No stock to buy. No hardware. No account to create for the customer. You send me their device code on WhatsApp, I send back the activation code within minutes.">
+          Pas de stock à avancer. Pas de matériel. Pas de compte à créer pour le
+          client. Vous m’envoyez son code appareil sur WhatsApp, je vous renvoie
+          le code d’activation en quelques minutes.
+        </p>
+        <a class="bouton plein" href="https://wa.me/2290151464510">
+          <span data-fr="Devenir revendeur" data-en="Become a reseller">Devenir revendeur</span>
+        </a>
+      </div>
+      <div class="compte">
+        <div class="ligne"><span data-fr="Abonnement annuel" data-en="Yearly subscription">Abonnement annuel</span><b>15 000 F</b></div>
+        <div class="ligne"><span data-fr="Votre commission (30 %)" data-en="Your commission (30%)">Votre commission (30 %)</span><b>4 500 F</b></div>
+        <div class="ligne"><span data-fr="Stock à avancer" data-en="Upfront stock">Stock à avancer</span><b>0 F</b></div>
+        <div class="ligne total-ligne"><span data-fr="15 ventes dans le mois" data-en="15 sales in a month">15 ventes dans le mois</span><b>67 500 F</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- -------------------------------------------------------------- faq -->
+  <section>
+    <div class="intro">
+      <span class="oeil" data-fr="Questions" data-en="Questions">Questions</span>
+      <h2 data-fr="Ce qu’on nous demande d’abord." data-en="What people ask first.">Ce qu’on nous demande d’abord.</h2>
+    </div>
+    <div class="faq">
+      <div>
+        <h3 data-fr="Ça va manger mon forfait ?" data-en="Will it use up my data?">Ça va manger mon forfait ?</h3>
+        <p data-fr="Non. L’application n’a pas l’autorisation d’accéder à internet. Mettez le téléphone en mode avion et vendez toute la journée."
+           data-en="No. The app has no permission to reach the internet. Put the phone in airplane mode and sell all day.">
+          Non. L’application n’a pas l’autorisation d’accéder à internet. Mettez
+          le téléphone en mode avion et vendez toute la journée.
+        </p>
+      </div>
+      <div>
+        <h3 data-fr="Et si je perds mon téléphone ?" data-en="What if I lose my phone?">Et si je perds mon téléphone ?</h3>
+        <p data-fr="Avec Pro, vous faites une sauvegarde : un seul fichier, que vous vous envoyez sur WhatsApp ou que vous gardez sur une carte mémoire. Sur le nouveau téléphone, vous le rechargez et tout revient."
+           data-en="With Pro you export a backup: one file, which you can send yourself on WhatsApp or keep on a memory card. On the new phone you load it back and everything returns.">
+          Avec Pro, vous faites une sauvegarde : un seul fichier, que vous vous
+          envoyez sur WhatsApp ou que vous gardez sur une carte mémoire. Sur le
+          nouveau téléphone, vous le rechargez et tout revient.
+        </p>
+      </div>
+      <div>
+        <h3 data-fr="Comment je paie, sans carte bancaire ?" data-en="How do I pay without a bank card?">Comment je paie, sans carte bancaire ?</h3>
+        <p data-fr="Mobile money, espèces, ou carte si vous en avez une. Vous donnez le code appareil affiché dans l’application, on vous renvoie un code d’activation de 16 caractères. Vous le saisissez — et ça marche même sans réseau."
+           data-en="Mobile money, cash, or card if you have one. You give us the device code shown in the app, we send back a 16-character activation code. You type it in — and it works even with no network.">
+          Mobile money, espèces, ou carte si vous en avez une. Vous donnez le code
+          appareil affiché dans l’application, on vous renvoie un code
+          d’activation de 16 caractères. Vous le saisissez — et ça marche même
+          sans réseau.
+        </p>
+      </div>
+      <div>
+        <h3 data-fr="Mon téléphone est vieux." data-en="My phone is old.">Mon téléphone est vieux.</h3>
+        <p data-fr="Android 5 suffit, et le fichier pèse 17 Mo. C’est justement pour ces téléphones-là qu’elle a été écrite."
+           data-en="Android 5 is enough, and the file is 17 MB. Those are exactly the phones it was written for.">
+          Android 5 suffit, et le fichier pèse 17 Mo. C’est justement pour ces
+          téléphones-là qu’elle a été écrite.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- -------------------------------------------------------------- fin -->
+  <div class="fin">
+    <h2 data-fr="Commencez ce soir, avec les crédits d’aujourd’hui."
+        data-en="Start tonight, with today’s credit.">Commencez ce soir, avec les crédits d’aujourd’hui.</h2>
+    <p style="color:var(--doux);max-width:48ch"
+       data-fr="Installez, tapez les trois personnes qui vous doivent le plus, et regardez le total. C’est en général à ce moment-là qu’on comprend."
+       data-en="Install it, type in the three people who owe you the most, and look at the total. That is usually the moment it lands.">
+      Installez, tapez les trois personnes qui vous doivent le plus, et regardez
+      le total. C’est en général à ce moment-là qu’on comprend.
+    </p>
+    <div class="boutons" style="justify-content:center">
+      <a class="bouton plein" href="https://johnibgg.github.io/cauri/Cauri-1.0.0.apk">
+        <span data-fr="Télécharger pour Android" data-en="Download for Android">Télécharger pour Android</span>
+      </a>
+      <a class="bouton vide" href="https://johnibgg.github.io/cauri/app/">
+        <span data-fr="Ou l’essayer dans le navigateur" data-en="Or try it in the browser">Ou l’essayer dans le navigateur</span>
+      </a>
+    </div>
+    <p class="petit">
+      <a href="https://johnibgg.github.io/cauri/Cauri-1.0.0-64bits.apk"
+         data-fr="Version 64 bits (téléphones récents)"
+         data-en="64-bit build (newer phones)">Version 64 bits (téléphones récents)</a>
+    </p>
+  </div>
+
+  <footer>
+    <span>Cauri · <span data-fr="Ventes, stock et crédits. Hors ligne." data-en="Sales, stock and credit. Offline.">Ventes, stock et crédits. Hors ligne.</span></span>
+    <span><a href="https://wa.me/2290151464510">WhatsApp</a> · +229 01 51 46 45 10</span>
+  </footer>
+</main>
+
+<script>
+  // --- langue -------------------------------------------------------------
+  const elementsTraduits = Array.from(document.querySelectorAll('[data-fr][data-en]'));
+  function appliquerLangue(code) {
+    document.documentElement.lang = code;
+    for (const el of elementsTraduits) {
+      el.innerHTML = el.dataset[code];
+    }
+    for (const b of document.querySelectorAll('[data-langue]')) {
+      b.setAttribute('aria-pressed', String(b.dataset.langue === code));
+    }
+  }
+  for (const b of document.querySelectorAll('[data-langue]')) {
+    b.addEventListener('click', () => appliquerLangue(b.dataset.langue));
+  }
+
+  // --- tarifs, cales sur le pouvoir d'achat local -------------------------
+  // Memes valeurs que lib/config.dart : si vous changez la, changez ici.
+  const TARIFS = {
+    XOF: { mois: 2000,  an: 15000,  symbole: 'F',   apres: true,  decimales: 0 },
+    NGN: { mois: 2500,  an: 19000,  symbole: '₦',   apres: false, decimales: 0 },
+    GHS: { mois: 40,    an: 300,    symbole: 'GH₵', apres: false, decimales: 0 },
+    KES: { mois: 300,   an: 2400,   symbole: 'KSh', apres: false, decimales: 0 },
+    INR: { mois: 199,   an: 1499,   symbole: '₹',   apres: false, decimales: 0 },
+    EUR: { mois: 3.99,  an: 29.99,  symbole: '€',   apres: true,  decimales: 2 },
+    USD: { mois: 3.99,  an: 29.99,  symbole: '$',   apres: false, decimales: 2 },
+  };
+
+  function ecrire(valeur, t) {
+    const corps = t.decimales === 0
+      ? Math.round(valeur).toLocaleString('fr-FR').replace(/ | /g, ' ')
+      : valeur.toFixed(t.decimales);
+    return t.apres ? corps + ' ' + t.symbole : t.symbole + corps;
+  }
+
+  function appliquerDevise(code) {
+    const t = TARIFS[code];
+    document.getElementById('prix-an').textContent = ecrire(t.an, t);
+    document.getElementById('prix-mois').textContent = ecrire(t.mois, t);
+    const parJour = t.an / 365;
+    document.getElementById('prix-jour').textContent =
+      t.decimales === 0 ? ecrire(Math.ceil(parJour), t) : ecrire(parJour, t);
+    for (const b of document.querySelectorAll('[data-devise]')) {
+      b.setAttribute('aria-pressed', String(b.dataset.devise === code));
+    }
+  }
+  for (const b of document.querySelectorAll('[data-devise]')) {
+    b.addEventListener('click', () => appliquerDevise(b.dataset.devise));
+  }
+  appliquerDevise('XOF');
+</script>
