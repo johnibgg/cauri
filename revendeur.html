@@ -298,25 +298,34 @@
     en: "Hello, I saw the Cauri reseller page. I know shopkeepers and I would like to know more."
   };
 
-  const elementsTraduits = Array.from(document.querySelectorAll('[data-fr][data-en]'));
+  // Cette page reste en deux langues : la commission de 30 %% ne fait un
+  // revenu qu'en Afrique de l'Ouest (130 %% du SMIG au Benin, 25 %% au
+  // Mexique). Proposer ce metier ailleurs serait vendre du vent.
+  const LANGUES = ['fr', 'en'];
+  const elementsTraduits = Array.from(
+      document.querySelectorAll('[data-fr][data-en]'));
   function appliquerLangue(code) {
+    if (!LANGUES.includes(code)) code = 'en';
     document.documentElement.lang = code;
-    for (const el of elementsTraduits) el.innerHTML = el.dataset[code];
+    for (const el of elementsTraduits) {
+      // Une phrase pas encore traduite retombe sur l'anglais plutot que de
+      // laisser un trou dans la page.
+      el.innerHTML = el.dataset[code] || el.dataset.en;
+    }
     for (const b of document.querySelectorAll('[data-langue]')) {
       b.setAttribute('aria-pressed', String(b.dataset.langue === code));
     }
-    // Le lien WhatsApp porte deja le message : le candidat n'a qu'a appuyer
-    // sur envoyer. Un formulaire a remplir ferait partir la moitie d'entre eux.
-    const lien = 'https://wa.me/' + NUMERO + '?text=' + encodeURIComponent(MESSAGES[code]);
-    for (const a of document.querySelectorAll('#wa, #wa2')) a.href = lien;
     try { localStorage.setItem('cauri-langue', code); } catch (e) {}
+    if (typeof window.surChangementDeLangue === 'function') {
+      window.surChangementDeLangue(code);
+    }
   }
   for (const b of document.querySelectorAll('[data-langue]')) {
     b.addEventListener('click', () => appliquerLangue(b.dataset.langue));
   }
   let choisie = null;
   try { choisie = localStorage.getItem('cauri-langue'); } catch (e) {}
-  const duNavigateur = (navigator.language || 'fr').slice(0, 2) === 'fr' ? 'fr' : 'en';
+  const duNavigateur = (navigator.language || 'en').slice(0, 2).toLowerCase();
   appliquerLangue(choisie || duNavigateur);
 </script>
 
